@@ -2,124 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.background-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-  /* Darker, near-black background for the "blackish" feel */
-  background: #020010; 
-  perspective: 500px; 
-}
-
-/* === Gradient Blob Styles (Slightly dimmer) === */
-.gradient-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-}
-
-.gradients-container {
-  filter: url(#goo) blur(40px);
-  width: 100%;
-  height: 100%;
-}
-
-svg {
-  display: none;
-}
-
-.g1, .g2, .g3, .g4, .g5 {
-  position: absolute;
-  border-radius: 100%;
-  mix-blend-mode: screen;
-  /* Reduced opacity for a more subtle effect */
-  opacity: 0.5; 
-}
-
-.g1 {
-  width: 45vw; height: 45vw; min-width: 400px; min-height: 400px;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle at center, rgba(108, 38, 226, 0.8) 0, rgba(108, 38, 226, 0) 50%) no-repeat;
-  animation: moveInCircle 22s ease-in-out infinite alternate;
-}
-
-.g2 {
-  width: 35vw; height: 35vw; min-width: 350px; min-height: 350px;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle at center, rgba(38, 126, 226, 0.8) 0, rgba(38, 126, 226, 0) 50%) no-repeat;
-  animation: moveInCircle 25s linear infinite alternate;
-}
-
-.g3 {
-  width: 30vw; height: 30vw; min-width: 300px; min-height: 300px;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle at center, rgba(74, 189, 154, 0.8) 0, rgba(74, 189, 154, 0) 50%) no-repeat;
-  animation: moveVertical 20s ease-in-out infinite alternate;
-}
-
-.g4 {
-  width: 38vw; height: 38vw; min-width: 320px; min-height: 320px;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle at center, rgba(197, 74, 189, 0.8) 0, rgba(197, 74, 189, 0) 50%) no-repeat;
-  animation: moveHorizontal 28s ease-in-out infinite alternate;
-}
-
-.g5 {
-  width: 42vw; height: 42vw; min-width: 380px; min-height: 380px;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle at center, rgba(189, 182, 74, 0.8) 0, rgba(189, 182, 74, 0) 50%) no-repeat;
-  animation: moveInCircle 18s ease-in-out infinite alternate;
-}
-
-@keyframes moveInCircle {
-  0% { transform: translate(-50%, -50%) rotate(0deg) translateX(20%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg) translateX(20%) rotate(-360deg); }
-}
-
-@keyframes moveVertical {
-  0% { transform: translate(-50%, -60%); }
-  100% { transform: translate(-50%, -40%); }
-}
-
-@keyframes moveHorizontal {
-  0% { transform: translate(-60%, -50%); }
-  100% { transform: translate(-40%, -50%); }
-}
-
-
-/* === Grid Overlay Styles (Darker "Chess" pattern) === */
-.grid-overlay {
-  position: absolute;
-  inset: -200% 0px; 
-  /* Darker grid lines with very low opacity */
-  background-image:
-    linear-gradient(to right, rgba(118, 129, 158, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(118, 129, 158, 0.08) 1px, transparent 1px);
-  background-size: 70px 70px; /* Slightly larger grid cells */
-  transform-origin: top;
-  transform: rotateX(55deg) translateY(0);
-  animation: moveGrid 15s linear infinite;
-  z-index: 1;
-}
-
-@keyframes moveGrid {
-  from {
-    transform: rotateX(55deg) translateY(0);
-  }
-  to {
-    transform: rotateX(55deg) translateY(-70px); /* Match grid cell height */
-  }
+/* * The new global styles for the body.
+ * This creates the multi-layered background effect.
+*/
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+    color: white;
+    /* * This is a multi-layered background. It's read from top to bottom.
+     * 1. Radial Gradient (Top Right): A purple aurora/nebula effect.
+     * 2. Radial Gradient (Top Left): A blue aurora/nebula effect.
+     * 3. Repeating Linear Gradient (Vertical Lines): Creates the vertical grid lines.
+     * 4. Repeating Linear Gradient (Horizontal Lines): Creates the horizontal grid lines.
+     * 5. Solid Color (Base): The dark navy base color.
+    */
+    background:
+        /* Top-right purple glow */
+        radial-gradient(ellipse 50% 50% at 100% 0%, rgba(128, 0, 128, 0.2), transparent),
+        /* Top-left blue glow */
+        radial-gradient(ellipse 50% 50% at 0% 0%, rgba(0, 0, 255, 0.2), transparent),
+        /* Vertical grid lines */
+        repeating-linear-gradient(to right, 
+            rgba(255, 255, 255, 0.05), 
+            rgba(255, 255, 255, 0.05) 1px, 
+            transparent 1px, 
+            transparent 100px
+        ),
+        /* Horizontal grid lines */
+        repeating-linear-gradient(to bottom, 
+            rgba(255, 255, 255, 0.05), 
+            rgba(255, 255, 255, 0.05) 1px, 
+            transparent 1px, 
+            transparent 100px
+        ),
+        /* Base background color */
+        #020018;
+    background-attachment: fixed; /* Keeps the background static on scroll */
 }
