@@ -3,10 +3,12 @@ import Projects from '../components/Projects';
 import Services from '../components/Services';
 import ContactUs from '../components/ContactUs';
 
-// This is the new Hero section component
-const HeroSection = () => {
+const HeroSection = ({ opacity }) => {
   return (
-    <div className="relative z-10 flex flex-col justify-center items-center min-h-screen text-center px-8">
+    <div
+      className="relative z-10 flex flex-col justify-center items-center min-h-screen text-center px-8"
+      style={{ opacity: opacity, transition: 'opacity 0.3s ease-out' }}
+    >
       <div className="max-w-4xl mx-auto">
         <p className="text-sm uppercase tracking-widest text-gray-400 mb-6">Looking for next-gen tech...?</p>
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">
@@ -27,14 +29,10 @@ const HeroSection = () => {
   );
 };
 
-
-const HomePage = () => {
+const HomePage = ({ opacity }) => {
   return (
     <div>
-      {/* The new Hero Section is now the first thing on the page */}
-      <HeroSection />
-
-      {/* Your other sections remain below */}
+      <HeroSection opacity={opacity} />
       <div id="projects">
         <Projects />
       </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-// Navigation links array, now with "Home" added at the beginning.
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
@@ -17,10 +16,8 @@ const Navigation = () => {
         <ul className="flex justify-center items-center px-3 py-2">
           {navLinks.map((link) => (
             <li key={link.name}>
-              {/* NavLink automatically handles the 'active' state for styling */}
               <NavLink
                 to={link.path}
-                // The 'end' prop ensures the Home link is only active on the exact path "/"
                 end={link.path === '/'} 
                 className={({ isActive }) =>
                   `block px-4 py-1.5 text-sm font-medium rounded-lg transition-colors duration-300 ${
