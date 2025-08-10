@@ -4,9 +4,10 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Projects', path: 'projects-section' }, // not a route, just section id
+  // { name: 'Projects', path: 'projects-section' }, // not a route, just section id
   { name: 'Careers', path: '/careers' },
   { name: 'Board', path: '/board' },
+  { name: 'Contact', path: '/contact' },
 ];
 
 const Navigation = ({ isVisible }) => {

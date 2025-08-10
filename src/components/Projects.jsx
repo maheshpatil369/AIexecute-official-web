@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code } from 'lucide-react';
+import { ArrowRight, Code, Star } from 'lucide-react';
 import {
   SiReact, SiNextdotjs, SiPython, SiTensorflow, SiStripe,
   SiFirebase, SiGraphql, SiNodedotjs, SiMongodb, SiVuedotjs,
@@ -9,7 +9,6 @@ import {
 } from 'react-icons/si';
 
 // --- Tech Icon Mapping ---
-// Added explicit size to all icons to ensure visibility
 const techIcons = {
   React: <SiReact size={20} className="text-cyan-400" />,
   "Next.js": <SiNextdotjs size={20} className="text-white" />,
@@ -35,70 +34,167 @@ const techIcons = {
   Vite: <SiVite size={20} className="text-purple-500" />,
 };
 
-// --- Project Data ---
+// --- Combined Project Data ---
 const allProjects = [
   {
-    title: "AI-Powered Analytics Dashboard",
-    description: "A comprehensive dashboard that visualizes complex data streams using machine learning.",
-    image: "https://placehold.co/600x400/020018/94a3b8?text=AI+Dashboard",
-    tech: ["React", "TensorFlow", "Python"],
+    title: "Virtual Real Estate Experience",
+    description: "A web platform that lets clients explore properties in first-person, measure spaces in real time, view layouts and models, all without apps or headsets.",
+    image: "https://placehold.co/600x400/020018/a78bfa?text=Virtual+Real+Estate",
+    tech: ["React", "Go"],
     liveUrl: "#",
+    isClient: true,
   },
   {
-    title: "E-commerce 'ShopSphere'",
-    description: "A scalable online marketplace with a custom recommendation engine and secure payments.",
-    image: "https://placehold.co/600x400/020018/94a3b8?text=ShopSphere",
-    tech: ["Next.js", "Stripe", "Firebase"],
+    title: "Green Watt: Household Energy Consumption Tracker",
+    description: "A web dashboard that tracks household electricity usage, identifies inefficiencies and suggests cost-saving measures.",
+    image: "https://placehold.co/600x400/020018/94a3b8?text=Green+Watt",
+    tech: ["Next.js", "PostgreSQL"],
     liveUrl: "#",
+    isClient: true,
   },
   {
-    title: "Fitness Coach 'FitTrack'",
-    description: "An iOS and Android app that offers personalized workout plans and progress tracking.",
-    image: "https://placehold.co/600x400/020018/94a3b8?text=FitTrack",
-    tech: ["React Native", "Node.js", "MongoDB"],
+    title: "MeddiSynx: Scalable Synthetic Data Generation",
+    description: "An AI platform that generates HIPAA/GDPR-compliant synthetic patient datasets, accelerating healthcare R&D while eliminating privacy and compliance risks.",
+    image: "https://placehold.co/600x400/020018/a78bfa?text=MeddiSynx",
+    tech: ["Python", "TensorFlow"],
     liveUrl: "#",
+    isClient: true,
   },
   {
-    title: "SaaS for Project Management",
-    description: "A collaborative tool to help teams organize tasks, track deadlines, and communicate.",
-    image: "https://placehold.co/600x400/020018/94a3b8?text=ProjectFlow",
-    tech: ["Vue.js", "Socket.io", "PostgreSQL"],
+    title: "AstroLynx: Navigating Indian Satellite Data",
+    description: "An AI-powered virtual assistant that uses NLP and dynamic knowledge graph modeling to instantly retrieve precise answers from complex web portals like MOSDAC, supporting geospatial data queries.",
+    image: "https://placehold.co/600x400/020018/94a3b8?text=AstroLynx",
+    tech: ["Python", "GraphQL"],
     liveUrl: "#",
+    isClient: true,
   },
   {
-    title: "Cybersecurity Threat Detector",
-    description: "An advanced system that identifies and neutralizes security threats in real-time.",
-    image: "https://placehold.co/600x400/020018/94a3b8?text=SecureNet",
-    tech: ["Go", "Elasticsearch", "Kibana"],
+    title: "Vision YT: YouTube Growth Analysis",
+    description: "An intelligent analytics platform that tracks YouTube channel performance, identifies audience engagement patterns and predicts content trends.",
+    image: "https://placehold.co/600x400/020018/94a3b8?text=Vision+YT",
+    tech: ["Next.js", "Elasticsearch", "Kibana"],
     liveUrl: "#",
+    isClient: true,
   },
   {
-    title: "Blockchain Voting System",
-    description: "A decentralized application ensuring transparent and tamper-proof election processes.",
-    image: "https://placehold.co/600x400/020018/94a3b8?text=VoteLedger",
-    tech: ["Solidity", "Hardhat", "Ethers.js"],
+    title: "AI Vocal Coach",
+    description: "A platform that analyzes pitch, tone, and breath control to provide singers with personalized, studio-quality vocal training.",
+    image: "https://placehold.co/600x400/020018/a78bfa?text=AI+Vocal+Coach",
+    tech: ["React", "Python"],
     liveUrl: "#",
+    isClient: true,
   },
   {
-    title: "Real-time Chat Application",
-    description: "A high-performance chat service with end-to-end encryption and multimedia support.",
-    image: "https://placehold.co/600x400/020018/94a3b8?text=ChatApp",
-    tech: ["React", "Firebase", "TailwindCSS"],
+    title: "FitnestX: Gamified Workout Challenge App",
+    description: "A mobile app that turns workouts into engaging challenges with rewards, leaderboards, and community interaction.",
+    image: "https://placehold.co/600x400/020018/94a3b8?text=FitnestX",
+    tech: ["React Native", "MongoDB"],
     liveUrl: "#",
+    isClient: true,
   },
   {
-    title: "Portfolio Website Builder",
-    description: "A dynamic platform for creatives to build and deploy their personal portfolios with ease.",
-    image: "https://placehold.co/600x400/020018/94a3b8?text=PortfolioGen",
-    tech: ["Next.js", "TypeScript", "Vite"],
+    title: "KrishiConnect: Farmer Assistant App",
+    description: "A multilingual voice and text mobile app that provides farmers with real-time weather updates, market prices, and government scheme information.",
+    image: "https://placehold.co/600x400/020018/94a3b8?text=KrishiConnect",
+    tech: ["React Native", "Express", "Node.js"],
     liveUrl: "#",
+    isClient: true,
   },
   {
-    title: "API for Weather Forecasting",
-    description: "A robust API delivering hyper-local weather data powered by predictive AI models.",
-    image: "https://placehold.co/600x400/020018/94a3b8?text=WeatherAPI",
-    tech: ["Python", "Node.js", "GraphQL"],
+    title: "PlanPal: Personalized Travel Itinerary Website",
+    description: "A responsive web app that creates personalized travel itineraries with location-based recommendations and optimized day plans.",
+    image: "https://placehold.co/600x400/020018/94a3b8?text=PlanPal",
+    tech: ["Vue.js", "Express", "PostgreSQL"],
     liveUrl: "#",
+    isClient: true,
+  },
+  {
+    title: "Intelligent Nutrition Data Dashboard",
+    description: "A web-based dashboard that instantly consolidates verified nutritional data from multiple sources for any packaged food product.",
+    image: "https://placehold.co/600x400/020018/a78bfa?text=Nutrition+Dashboard",
+    tech: ["React", "MongoDB"],
+    liveUrl: "#",
+    isClient: true,
+  },
+  {
+    title: "Automated Sports Match Analyzer",
+    description: "A computer vision platform that processes sports footage to deliver instant stats, tactical breakdowns, and highlight reels.",
+    image: "https://placehold.co/600x400/020018/a78bfa?text=Sports+Analyzer",
+    tech: ["Python", "TensorFlow"],
+    liveUrl: "#",
+    isClient: true,
+  },
+  {
+    title: "EcoFootprint: Personal Carbon Impact Tracker",
+    description: "A web dashboard that calculates and tracks an individual's daily carbon footprint while offering actionable eco-friendly tips.",
+    image: "https://placehold.co/600x400/020018/94a3b8?text=EcoFootprint",
+    tech: ["Next.js", "PostgreSQL"],
+    liveUrl: "#",
+    isClient: true,
+  },
+  {
+    title: "Real Estate Price Forecasting Engine",
+    description: "A predictive analytics engine that estimates property values using macroeconomic, neighborhood, and rental yield data.",
+    image: "https://placehold.co/600x400/020018/a78bfa?text=Real+Estate+Forecasting",
+    tech: ["Python", "TensorFlow"],
+    liveUrl: "#",
+    isClient: true,
+  },
+  {
+    title: "Decentralized E-Commerce Marketplace",
+    description: "A blockchain-based marketplace enabling secure peer-to-peer product sales through escrow smart contracts.",
+    image: "https://placehold.co/600x400/020018/94a3b8?text=Decentralized+E-Commerce",
+    tech: ["Solidity", "Ethers.js"],
+    liveUrl: "#",
+    isClient: true,
+  },
+  {
+    title: "Smart Vehicle Maintenance Reminder System",
+    description: "A platform that automatically tracks vehicle service, insurance, and pollution check dates, sending timely alerts via Email, WhatsApp, and Google Calendar.",
+    image: "https://placehold.co/600x400/020018/94a3b8?text=Vehicle+Reminder",
+    tech: ["Node.js", "Express", "MongoDB"],
+    liveUrl: "#",
+    isClient: true,
+  },
+  {
+    title: "Integrated Streaming & Box Office Analytics",
+    description: "A platform that merges OTT and theatrical data to reveal high-potential content, untapped audiences, and hidden revenue opportunities.",
+    image: "https://placehold.co/600x400/020018/a78bfa?text=Streaming+Analytics",
+    tech: ["Python", "PostgreSQL"],
+    liveUrl: "#",
+    isClient: true,
+  },
+  {
+    title: "Reinforcement Learning Trading Agent",
+    description: "An AI trading system that uses advanced reinforcement learning to execute trades and adapt to real-time market conditions.",
+    image: "https://placehold.co/600x400/020018/a78bfa?text=Trading+Agent",
+    tech: ["Python", "TensorFlow"],
+    liveUrl: "#",
+    isClient: true,
+  },
+  {
+    title: "IPL Insights 2025",
+    description: "An analytics platform combining all seasons of IPL history with live 2025 stats to deliver performance trends, predictions, and actionable game insights.",
+    image: "https://placehold.co/600x400/020018/94a3b8?text=IPL+Insights",
+    tech: ["React", "Python", "GraphQL"],
+    liveUrl: "#",
+    isClient: true,
+  },
+  {
+    title: "AI Campaign Content Generator",
+    description: "An AI-powered content generator that produces high-conversion marketing copy and visuals tailored to campaign KPIs.",
+    image: "https://placehold.co/600x400/020018/a78bfa?text=Content+Generator",
+    tech: ["Next.js", "Python"],
+    liveUrl: "#",
+    isClient: true,
+  },
+  {
+    title: "Interactive AI Bot",
+    description: "A 3D AI-powered bot designed to deliver engaging, personalized educational experiences in classrooms or virtual environments.",
+    image: "https://placehold.co/600x400/020018/a78bfa?text=Interactive+AI+Bot",
+    tech: ["React", "Python", "WebAssembly"],
+    liveUrl: "#",
+    isClient: true,
   },
 ];
 
@@ -118,6 +214,13 @@ const ProjectCard = ({ project }) => (
   >
     <div className="absolute -inset-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-300"></div>
     <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/60 backdrop-blur-sm h-full flex flex-col">
+      {/* --- CLIENT PROJECT BADGE ADDED HERE --- */}
+      {project.isClient && (
+        <div className="absolute top-4 right-4 bg-purple-600/50 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 backdrop-blur-sm border border-white/20">
+          <Star size={12} className="text-yellow-300" />
+          <span>Client Project</span>
+        </div>
+      )}
       <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex-grow">
@@ -156,11 +259,11 @@ const Projects = () => {
   const projectsToShow = allProjects.slice(0, visibleCount);
 
   const handleSeeMore = () => {
-    setVisibleCount(prevCount => Math.min(prevCount + 3, 12));
+    setVisibleCount(prevCount => Math.min(prevCount + 3, allProjects.length));
   };
 
   return (
-    <div className="w-full text-white px-4 py-24 md:px-8 lg:px-16" id="projects">
+    <div className="w-full text-white px-4 pt-0 pb-24 md:px-8 lg:px-16" id="projects">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -169,10 +272,13 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-2">
-              Our <span className="rainbow-text">Projects</span>
-            </h1>
-            <p className="text-lg text-gray-400">A glimpse into our world of innovation.</p>
+          {/* --- HEADING UPDATED HERE --- */}
+          <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-[0.35em] rainbow-text mb-6">
+            Our Projects
+          </h1>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            A glimpse into our world of innovation, including successful client collaborations.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -181,20 +287,20 @@ const Projects = () => {
           ))}
         </div>
 
-        {visibleCount < allProjects.length && visibleCount < 12 && (
-            <motion.div
-              className="text-center mt-16"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
+        {visibleCount < allProjects.length && (
+          <motion.div
+            className="text-center mt-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+          >
+            <button
+              onClick={handleSeeMore}
+              className="relative inline-flex items-center gap-2 overflow-hidden text-white font-semibold py-3 px-10 rounded-lg border border-white/30 transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:border-white/60 bg-white/10 hover:bg-white/20"
             >
-              <button
-                onClick={handleSeeMore}
-                className="relative inline-flex items-center gap-2 overflow-hidden text-white font-semibold py-3 px-10 rounded-lg border border-white/30 transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:border-white/60 bg-white/10 hover:bg-white/20"
-              >
-                  See More <ArrowRight size={18} />
-              </button>
-            </motion.div>
+              See More <ArrowRight size={18} />
+            </button>
+          </motion.div>
         )}
       </div>
     </div>

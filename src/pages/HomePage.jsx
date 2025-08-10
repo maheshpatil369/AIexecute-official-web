@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Projects from '../components/Projects';
 import Services from '../components/Services';
 import ContactUs from '../components/ContactUs';
 import AILogo from '../assets/bg-aiexecute.png';
 
-// Animation variants remain the same
+// --- Animation Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -23,45 +23,52 @@ const itemVariants = {
   },
 };
 
+// --- HeroSection ---
 const HeroSection = ({ opacity }) => {
   return (
     <div
-      className="relative z-10 flex flex-col justify-center items-center min-h-screen text-center px-6 py-10" // Changed justify-between to justify-center
+      className="relative z-10 flex flex-col min-h-screen text-center px-6"
       style={{ opacity: opacity, transition: 'opacity 0.3s ease-out' }}
     >
-      {/* Main content container */}
+      {/* Spacer to push content down */}
+      <div className="flex-grow" style={{ flexGrow: 1.5 }}></div>
+
+      {/* This container centers the logo and the text block below it */}
       <motion.div
-        className="max-w-5xl mx-auto flex flex-col items-center" // Removed mt-10 to allow vertical centering
-        variants={containerVariants}
+        className="flex flex-col items-center"
         initial="hidden"
         animate="visible"
+        variants={containerVariants}
       >
-        {/* Logo (larger now) */}
+        {/* Centered Logo */}
         <motion.img
           src={AILogo}
           alt="AIExecute Logo"
-          className="w-64 h-auto md:w-80 mb-12" // Increased size and bottom margin
+          className="w-64 h-auto md:w-80 mb-12" 
           variants={itemVariants}
         />
-
-        {/* Combined & Styled Headings */}
-        <motion.div
-            className="text-4xl md:text-5xl font-extrabold uppercase tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-purple-500 to-pink-500 mb-14"
-            variants={itemVariants}
+        
+        {/* All text content with unified styling */}
+        <motion.div 
+          variants={itemVariants} 
+          className="flex flex-col items-center"
         >
-            <p className="leading-snug">Learning Anything Into Everything</p>
-            <p className="leading-snug">Through Action Into Excellence</p>
+          <h1 className="text-2xl md:text-3xl uppercase tracking-[0.35em] font-semibold rainbow-text mb-4">
+            Welcome to AIExecute !
+          </h1>
+          <p className="text-base md:text-lg uppercase tracking-[0.35em] font-semibold rainbow-text max-w-2xl">
+            Your one-stop platform to create AI, drive innovation and Learn Tech shaping the future.
+          </p>
         </motion.div>
-
-        {/* The button has been removed */}
-
       </motion.div>
 
-      {/* Bottom tagline */}
+      {/* Spacer to push tagline to the bottom */}
+      <div className="flex-grow" style={{ flexGrow: 2 }}></div>
+
+      {/* Bottom Tagline, positioned very close to the bottom */}
       <motion.p
-        className="absolute bottom-8 text-sm md:text-base uppercase tracking-[0.35em] font-semibold rainbow-text"
+        className="text-sm md:text-base uppercase tracking-[0.35em] font-semibold rainbow-text pb-3"
         variants={itemVariants}
-        // Added initial and animate props to the tagline for consistency
         initial="hidden"
         animate="visible"
       >
@@ -71,16 +78,46 @@ const HeroSection = ({ opacity }) => {
   );
 };
 
+
+
+// --- Main HomePage Component ---
 const HomePage = ({ opacity }) => {
+  const [bgOpacity, setBgOpacity] = useState(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const fadeEnd = 600; // The scroll distance over which the background fades
+      const newOpacity = Math.max(0, 1 - scrollY / fadeEnd);
+      setBgOpacity(newOpacity);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div>
-      <HeroSection opacity={opacity} />
-      <div id="projects">
-        <Services />
-      </div>
-      <Projects />
-      <div id="contact">
-        <ContactUs />
+      {/* Hero Section with scroll-controlled background opacity */}
+      <div
+        className="hero-background-effect fixed inset-0" // Made background fixed
+        style={{ opacity: bgOpacity, zIndex: -1 }} // Use z-index to place it behind content
+      />
+
+      {/* All content is now in a single flow */}
+      <div>
+        <HeroSection opacity={opacity} />
+        <div className="bg-[#020018]">
+          <div id="services">
+            <Services />
+          </div>
+          <div id="projects">
+            <Projects />
+          </div>
+          <div id="contact">
+            <ContactUs />
+          </div>
+        </div>
       </div>
     </div>
   );
