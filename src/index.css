@@ -12,14 +12,26 @@ body {
     background-color: #020018; 
 }
 
-.main-container {
-    background:
-        radial-gradient(ellipse 80% 80% at 100% 50%, rgba(128, 0, 128, 0.15), transparent),
-        #020018;
-    position: relative;
-    z-index: 1;
-    background-attachment: fixed;
+
+
+body {
+  background:
+    /* The alpha value (the last number) of the rgba color is now lower */
+    radial-gradient(circle at 0% 50%, rgba(10, 100, 255, 0.35), transparent 25%),
+    radial-gradient(circle at 100% 50%, rgba(10, 100, 255, 0.35), transparent 25%),
+    
+    /* The solid dark blue base layer */
+    #020018;
+
+  /* Keeps the background fixed in place during scroll */
+  background-attachment: fixed;
+
+  /* Basic setup for full-page background */
+  min-height: 100vh;
+  margin: 0;
 }
+
+
 
 /* New Rainbow Text Animation */
 .rainbow-text {
