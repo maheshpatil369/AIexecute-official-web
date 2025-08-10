@@ -19,7 +19,6 @@ const GridBackground = ({ scrollPosition }) => {
     };
   }, []);
   
-  // The opacity is calculated for a smooth fade-out.
   const opacity = Math.max(0, 1 - scrollPosition / 500);
 
   return (

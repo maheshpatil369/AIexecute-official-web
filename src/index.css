@@ -2,42 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-/* * The new global styles for the body.
- * This creates the multi-layered background effect.
-*/
+
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevents horizontal scrollbar */
+    overflow-x: hidden;
     color: white;
-    /* * This is a multi-layered background. It's read from top to bottom.
-     * 1. Radial Gradient (Top Right): A purple aurora/nebula effect.
-     * 2. Radial Gradient (Top Left): A blue aurora/nebula effect.
-     * 3. Repeating Linear Gradient (Vertical Lines): Creates the vertical grid lines.
-     * 4. Repeating Linear Gradient (Horizontal Lines): Creates the horizontal grid lines.
-     * 5. Solid Color (Base): The dark navy base color.
-    */
+    background-color: #020018; 
+}
+
+.main-container {
     background:
-        /* Top-right purple glow */
-        radial-gradient(ellipse 50% 50% at 100% 0%, rgba(128, 0, 128, 0.2), transparent),
-        /* Top-left blue glow */
-        radial-gradient(ellipse 50% 50% at 0% 0%, rgba(0, 0, 255, 0.2), transparent),
-        /* Vertical grid lines */
-        repeating-linear-gradient(to right, 
-            rgba(255, 255, 255, 0.05), 
-            rgba(255, 255, 255, 0.05) 1px, 
-            transparent 1px, 
-            transparent 100px
-        ),
-        /* Horizontal grid lines */
-        repeating-linear-gradient(to bottom, 
-            rgba(255, 255, 255, 0.05), 
-            rgba(255, 255, 255, 0.05) 1px, 
-            transparent 1px, 
-            transparent 100px
-        ),
-        /* Base background color */
+        radial-gradient(ellipse 80% 80% at 100% 50%, rgba(128, 0, 128, 0.15), transparent),
         #020018;
-    background-attachment: fixed; /* Keeps the background static on scroll */
+    position: relative;
+    z-index: 1;
+    background-attachment: fixed;
+}
+
+/* New Rainbow Text Animation */
+.rainbow-text {
+  background: linear-gradient(to right, #6EE7B7, #7C3AED, #EC4899, #F59E0B);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  transition: background-position 0.5s ease-in-out;
+}
+
+.rainbow-text:hover {
+  background-position: right center; /* This moves the gradient on hover */
 }

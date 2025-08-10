@@ -1,11 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-const Services = () => {
+function Services() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-800/30">
-      <h2 className="text-5xl font-bold">Our Services</h2>
+    <div>
+      <h2>Our Services</h2>
+      <ul>
+        <li>Web Development</li>
+        <li>App Development</li>
+        <li>SaaS Solutions</li>
+        <li>Consulting</li>
+      </ul>
     </div>
-  );
-};
+  )
+}
 
-export default Services;
+export default Services

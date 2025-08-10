@@ -1,30 +1,83 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Projects from '../components/Projects';
 import Services from '../components/Services';
 import ContactUs from '../components/ContactUs';
+import AILogo from '../assets/bg-aiexecute.png';
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+};
 
 const HeroSection = ({ opacity }) => {
   return (
     <div
-      className="relative z-10 flex flex-col justify-center items-center min-h-screen text-center px-8"
+      className="relative z-10 flex flex-col justify-between items-center min-h-screen text-center px-6 py-10"
       style={{ opacity: opacity, transition: 'opacity 0.3s ease-out' }}
     >
-      <div className="max-w-4xl mx-auto">
-        <p className="text-sm uppercase tracking-widest text-gray-400 mb-6">Looking for next-gen tech...?</p>
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">
-          Your Vision, Our Innovation:
-        </h1>
-        <h2 className="text-5xl md:text-7xl font-black uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 mb-8">
-          AIExecute
-        </h2>
-        <p className="text-lg text-gray-300 mb-12">Welcome!</p>
-        <a href="#projects" className="inline-flex items-center bg-transparent hover:bg-white/10 text-white font-semibold py-3 px-8 rounded-lg border border-white/30 transition-colors duration-300">
-          See our work
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
-        </a>
-      </div>
+      {/* Top content */}
+      <motion.div
+        className="max-w-5xl mx-auto flex flex-col items-center mt-10"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Logo (bigger now) */}
+        <motion.img
+          src={AILogo}
+          alt="AIExecute Logo"
+          className="w-56 h-auto md:w-64 mb-8"
+          variants={itemVariants}
+        />
+
+        {/* Main Heading */}
+        <motion.h1
+          className="text-4xl md:text-5xl font-extrabold text-white leading-snug mb-4"
+          variants={itemVariants}
+        >
+          Learning Anything Into Everything
+        </motion.h1>
+
+        {/* Subheading */}
+        <motion.h2
+          className="text-4xl md:text-5xl font-extrabold uppercase tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-purple-500 to-pink-500 mb-14"
+          variants={itemVariants}
+        >
+          Through Action Into Excellence
+        </motion.h2>
+
+        {/* Premium Button */}
+        <motion.a
+          href="#contact"
+          className="relative inline-block overflow-hidden text-white font-semibold py-4 px-14 rounded-lg border border-white/30 transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:border-white/60 hover:bg-white/10"
+          variants={itemVariants}
+        >
+          <span className="relative z-10">Join Me</span>
+          <span className="absolute inset-0 bg-gradient-to-r from-teal-500/20 via-purple-500/20 to-pink-500/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></span>
+        </motion.a>
+      </motion.div>
+
+      {/* Bottom tagline moved down */}
+      <motion.p
+        className="absolute bottom-8 text-sm md:text-base uppercase tracking-[0.35em] font-semibold rainbow-text"
+        variants={itemVariants}
+      >
+        Learn &bull; Build &bull; Grow &bull; Execute
+      </motion.p>
     </div>
   );
 };
@@ -34,10 +87,12 @@ const HomePage = ({ opacity }) => {
     <div>
       <HeroSection opacity={opacity} />
       <div id="projects">
-        <Projects />
-      </div>
       <Services />
-      <ContactUs />
+      </div>
+        <Projects />
+      <div id="contact">
+        <ContactUs />
+      </div>
     </div>
   );
 };
