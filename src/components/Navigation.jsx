@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'Projects', path: '#projects' },
   { name: 'Careers', path: '/careers' },
+  { name: 'Board', path: '/board' },
 ];
 
 const Navigation = ({ isVisible }) => {

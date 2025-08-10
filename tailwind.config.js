@@ -11,6 +11,7 @@ export default {
         'gradient-x': 'gradient-x 13s ease infinite',
         'gradient-y': 'gradient-y 13s ease infinite',
         'gradient-xy': 'gradient-xy 13s ease infinite',
+        'border-spin': 'border-spin 7s linear infinite', // Added this line
       },
       keyframes: {
         'gradient-y': {
@@ -50,6 +51,10 @@ export default {
             'background-size': '400% 400%',
             'background-position': 'right center'
           }
+        },
+        'border-spin': { // Added this keyframe
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         }
       },
       backdropBlur: {
