@@ -70,7 +70,7 @@ const Services = () => {
           {servicesToShow.map((service, index) => (
             <motion.div
               key={index}
-              className="group relative overflow-hidden p-8 rounded-xl border border-white/10 bg-black/30 hover:bg-white/5 transition-all duration-300"
+              className="group relative overflow-hidden p-8 rounded-xl border border-white/10 bg-black/30 hover:bg-white/5 transition-all duration-300 cursor-pointer"
               variants={cardVariants}
               whileHover={{ y: -8, scale: 1.03, boxShadow: '0 10px 30px rgba(128, 0, 128, 0.3)' }}
             >

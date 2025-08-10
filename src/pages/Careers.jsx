@@ -71,7 +71,7 @@ const roles = [
 
 const Careers = () => {
   return (
-    <div className="w-full text-white px-4 py-24 md:px-8 lg:px-16 overflow-hidden">
+    <div className="w-full text-white px-4 py-24 md:px-8 lg:px-16 overflow-hidden cursor-pointer">
       <div className="max-w-7xl mx-auto">
         {/* --- Header Section --- */}
         <motion.div
