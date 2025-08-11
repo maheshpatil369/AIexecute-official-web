@@ -80,8 +80,8 @@ const Careers = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
-            Join The <span className="rainbow-text">Future</span>
+          <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-[0.35em] rainbow-text mb-6">
+       OUR <span className="rainbow-text">DEPARTMENTS</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
             We're building a team of innovators, dreamers, and doers. Find your place at AIExecute and help us shape the world of tomorrow.

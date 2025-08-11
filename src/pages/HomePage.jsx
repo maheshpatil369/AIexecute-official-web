@@ -1,38 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Projects from '../components/Projects';
 import Services from '../components/Services';
 import ContactUs from '../components/ContactUs';
 import AILogo from '../assets/bg-aiexecute.png';
 
-// --- Animation Variants ---
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 },
-  },
-};
-
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.6, ease: 'easeOut' },
-  },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
 };
 
-// --- HeroSection ---
-const HeroSection = ({ opacity }) => {
+const HeroSection = () => {
   const headingText = "Welcome to AIExecute...!";
 
   return (
-    <div
-      className="relative z-10 flex flex-col items-center min-h-screen text-center px-6"
-      style={{ opacity: opacity, transition: 'opacity 0.3s ease-out' }}
-    >
-      {/* Bigger logo pushed down */}
+    <div className="relative z-10 flex flex-col items-center min-h-screen text-center px-6">
+      {/* Logo */}
       <motion.img
         src={AILogo}
         alt="AIExecute Logo"
@@ -42,14 +25,13 @@ const HeroSection = ({ opacity }) => {
         animate="visible"
       />
 
-      {/* Text directly below logo */}
+      {/* Heading */}
       <motion.div
         variants={itemVariants}
         initial="hidden"
         animate="visible"
         className="flex flex-col items-center"
       >
-        {/* Letter-by-letter heading */}
         <motion.h1
           className="text-2xl md:text-3xl uppercase tracking-[0.35em] font-semibold rainbow-text mb-4 flex flex-wrap justify-center"
           initial="hidden"
@@ -67,14 +49,13 @@ const HeroSection = ({ opacity }) => {
           ))}
         </motion.h1>
 
-        {/* Paragraph */}
-       <p className="font-dancing text-base md:text-lg tracking-[0.05em] font-semibold rainbow-text max-w-2xl">
-  Your one-stop platform to create AI, drive innovation and Learn Tech shaping the future.
-</p>
-
+        {/* Tagline */}
+        <p className="font-dancing text-base md:text-lg tracking-[0.05em] font-semibold rainbow-text max-w-2xl">
+          Your one-stop platform to create AI, drive innovation and Learn Tech shaping the future.
+        </p>
       </motion.div>
 
-      {/* Bottom tagline */}
+      {/* Bottom text */}
       <motion.p
         className="absolute bottom-4 text-sm md:text-base uppercase tracking-[0.35em] font-semibold rainbow-text"
         variants={itemVariants}
@@ -87,45 +68,57 @@ const HeroSection = ({ opacity }) => {
   );
 };
 
-
-
-// --- Main HomePage Component ---
-const HomePage = ({ opacity }) => {
-  const [bgOpacity, setBgOpacity] = useState(1);
-
+const HomePage = () => {
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const fadeEnd = 600; // The scroll distance over which the background fades
-      const newOpacity = Math.max(0, 1 - scrollY / fadeEnd);
-      setBgOpacity(newOpacity);
+      const scrollTop = window.scrollY;
+      const maxScroll = 300; // scroll distance to fade out
+      const opacity = Math.max(0, 1 - scrollTop / maxScroll);
+      document
+        .querySelector('.home-background')
+        ?.style.setProperty('--glow-opacity', opacity.toString());
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <div>
-      {/* Hero Section with scroll-controlled background opacity */}
+    <div
+      className="home-background relative"
+      style={{
+        '--glow-opacity': 1,
+      }}
+    >
+      {/* Left Glow (Bottom Left Half Inside) */}
       <div
-        className="hero-background-effect fixed inset-0" // Made background fixed
-        style={{ opacity: bgOpacity, zIndex: -1 }} // Use z-index to place it behind content
+        className="absolute bottom-[-200px] left-[-300px] w-[900px] h-[900px] rounded-full pointer-events-none z-0 blur-3xl"
+        style={{
+          background:
+            'radial-gradient(circle, rgba(0,133,255,calc(var(--glow-opacity) * 0.25)) 0%, transparent 70%)',
+        }}
+      />
+      {/* Right Glow (Top Right Half Inside) */}
+      <div
+        className="absolute top-[-200px] right-[-300px] w-[900px] h-[900px] rounded-full pointer-events-none z-0 blur-3xl"
+        style={{
+          background:
+            'radial-gradient(circle, rgba(0,133,255,calc(var(--glow-opacity) * 0.25)) 0%, transparent 70%)',
+        }}
       />
 
-      {/* All content is now in a single flow */}
-      <div>
-        <HeroSection opacity={opacity} />
-        <div className="bg-[#020018]">
-          <div id="services">
-            <Services />
-          </div>
-          <div id="projects">
-            <Projects />
-          </div>
-          <div id="contact">
-            <ContactUs />
-          </div>
+      {/* Hero Section */}
+      <HeroSection />
+
+      {/* Content Sections */}
+      <div className="bg-inherit relative z-10">
+        <div id="services">
+          <Services />
+        </div>
+        <div id="projects">
+          <Projects />
+        </div>
+        <div id="contact">
+          <ContactUs />
         </div>
       </div>
     </div>
