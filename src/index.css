@@ -6,10 +6,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #020018;
+  background-color: #031121; /* Navy blue */
   font-family: 'Inter', sans-serif;
   color: white;
 }
+
 .homepage-background {
   position: relative;
   min-height: 100vh;

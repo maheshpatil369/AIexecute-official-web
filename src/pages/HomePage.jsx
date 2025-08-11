@@ -51,7 +51,7 @@ const HeroSection = () => {
 
         {/* Tagline */}
         <p className="font-dancing text-base md:text-lg tracking-[0.05em] font-semibold rainbow-text max-w-2xl">
-          Your one-stop platform to create AI, drive innovation and Learn Tech shaping the future.
+          YOUR ONE-STOP PLATFORM TO CREATE AI, DRIVE INNOVATION AND LEARN TECH SHAPING THE FUTURE.
         </p>
       </motion.div>
 
@@ -95,14 +95,14 @@ const HomePage = () => {
     >
       {/* Left and Right Light Glow */}
       <div
-        className="absolute top-[-200px] left-[-300px] w-[900px] h-[900px] rounded-full pointer-events-none z-0 blur-3xl"
+        className="absolute top-[-120px] left-[-400px] w-[800px] h-[800px] rounded-full pointer-events-none z-0 blur-3xl"
         style={{
           background:
             'radial-gradient(circle, rgba(0,133,255,var(--glow-opacity)) 0%, transparent 70%)',
         }}
       />
       <div
-        className="absolute top-[-200px] right-[-300px] w-[900px] h-[900px] rounded-full pointer-events-none z-0 blur-3xl"
+        className="absolute top-[-120px] right-[-400px] w-[800px] h-[800px] rounded-full pointer-events-none z-0 blur-3xl"
         style={{
           background:
             'radial-gradient(circle, rgba(0,133,255,var(--glow-opacity)) 0%, transparent 70%)',
