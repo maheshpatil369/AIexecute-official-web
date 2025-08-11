@@ -29,7 +29,7 @@ const GridBackground = ({ scrollPosition }) => {
         background: `
           radial-gradient(
             600px circle at var(--mouse-x, 100px) var(--mouse-y, 100px),
-            rgba(128, 0, 128, 0.15),
+            rgba(88, 28, 135, 0.15),
             transparent 80%
           ),
           repeating-linear-gradient(to right, 

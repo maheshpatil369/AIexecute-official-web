@@ -10,6 +10,7 @@ export default {
       inter: ['Inter', 'sans-serif'],
       orbitron: ['Orbitron', 'sans-serif'],
       rajdhani: ['Rajdhani', 'sans-serif'],
+      dancing: ['"Dancing Script"', 'cursive'],
       },
       animation: {
         'gradient-x': 'gradient-x 13s ease infinite',

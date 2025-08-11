@@ -25,6 +25,8 @@ const itemVariants = {
 
 // --- HeroSection ---
 const HeroSection = ({ opacity }) => {
+  const headingText = "Welcome to AIExecute...!";
+
   return (
     <div
       className="relative z-10 flex flex-col items-center min-h-screen text-center px-6"
@@ -34,7 +36,7 @@ const HeroSection = ({ opacity }) => {
       <motion.img
         src={AILogo}
         alt="AIExecute Logo"
-        className="w-80 h-auto md:w-[24rem] mb-8 mt-32" // bigger + pushed down
+        className="w-80 h-auto md:w-[24rem] mb-8 mt-32"
         variants={itemVariants}
         initial="hidden"
         animate="visible"
@@ -47,10 +49,26 @@ const HeroSection = ({ opacity }) => {
         animate="visible"
         className="flex flex-col items-center"
       >
-        <h1 className="text-2xl md:text-3xl uppercase tracking-[0.35em] font-semibold rainbow-text mb-4">
-          Welcome to AIExecute !
-        </h1>
-        <p className="font- poppins text-base md:text-lg uppercase tracking-[0.35em] font-semibold rainbow-text max-w-2xl">
+        {/* Letter-by-letter heading */}
+        <motion.h1
+          className="text-2xl md:text-3xl uppercase tracking-[0.35em] font-semibold rainbow-text mb-4 flex flex-wrap justify-center"
+          initial="hidden"
+          animate="visible"
+        >
+          {headingText.split("").map((char, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.05, duration: 0.05 }}
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </motion.h1>
+
+        {/* Paragraph */}
+       <p className="font-dancing text-base md:text-lg tracking-[0.05em] font-semibold rainbow-text max-w-2xl">
   Your one-stop platform to create AI, drive innovation and Learn Tech shaping the future.
 </p>
 
@@ -68,8 +86,6 @@ const HeroSection = ({ opacity }) => {
     </div>
   );
 };
-
-
 
 
 

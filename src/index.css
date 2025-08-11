@@ -10,7 +10,7 @@ body {
   color: white;
   overflow-x: hidden;
   /* The body now has only the solid base color */
-  background-color: #020018;
+  background-color: #01041a; /* Dark Navy Blue */
   margin: 0;
   padding: 0;
 }
@@ -19,16 +19,22 @@ body {
 .hero-background-effect {
   position: relative; /* Needed for stacking */
   background:
-    /* Left light effect */
-    radial-gradient(circle at 0% 50%, rgba(10, 100, 255, 0.35), transparent 25%),
-    /* Right light effect */
-    radial-gradient(circle at 100% 50%, rgba(10, 100, 255, 0.35), transparent 25%),
+    /* Top-left light effect */
+    radial-gradient(circle at 15% 25%, rgba(12, 74, 110, 0.4), transparent 35%),
+    /* Bottom-right light effect */
+    radial-gradient(circle at 85% 75%, rgba(10, 10, 10, 0.4), transparent 35%),
     /* The solid dark blue base layer */
-    #020018;
+    #01041A;
   
   /* This is important: it makes the background scroll with the element */
   background-attachment: scroll;
 }
+
+/* --- New Heading Text Color --- */
+.heading-text-color {
+  color: #08d3c4;
+}
+
 
 /* Your existing Rainbow Text Animation */
 .rainbow-text {
