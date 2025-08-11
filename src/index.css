@@ -10,48 +10,42 @@ body {
   font-family: 'Inter', sans-serif;
   color: white;
 }
-
-/* Container for background glow */
 .homepage-background {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
 }
 
-/* Right side glow */
+/* Left side half circle */
 .homepage-background::before {
   content: '';
   position: absolute;
   top: 50%;
-  right: -150px; /* Half inside, half outside */
+  left: 0;
+  transform: translate(-50%, -50%);
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(0, 133, 255, 0.25), transparent 70%);
-  transform: translateY(-50%);
-  z-index: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
+  border-radius: 50%;
+  background: rgba(0, 133, 255, 0.2); /* lighter glow */
+  clip-path: inset(0 50% 0 0);
+  filter: blur(60px);
 }
 
-/* Left side glow */
+/* Right side half circle */
 .homepage-background::after {
   content: '';
   position: absolute;
   top: 50%;
-  left: -150px; /* Half inside, half outside */
+  right: 0;
+  transform: translate(50%, -50%);
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(0, 133, 255, 0.25), transparent 70%);
-  transform: translateY(-50%);
-  z-index: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
+  border-radius: 50%;
+  background: rgba(0, 133, 255, 0.2); /* lighter glow */
+  clip-path: inset(0 0 0 50%);
+  filter: blur(60px);
 }
 
-/* Fade effect on scroll */
-.fade-out {
-  opacity: 0;
-}
 
 /* Rainbow Text Animation */
 .rainbow-text {

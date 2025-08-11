@@ -79,7 +79,11 @@ const HomePage = () => {
         ?.style.setProperty('--glow-opacity', opacity.toString());
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.body.style.overflowX = 'hidden'; // prevent horizontal scroll
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.style.overflowX = 'auto';
+    };
   }, []);
 
   return (
@@ -89,20 +93,19 @@ const HomePage = () => {
         '--glow-opacity': 1,
       }}
     >
-      {/* Left Glow (Bottom Left Half Inside) */}
+      {/* Left and Right Light Glow */}
       <div
-        className="absolute bottom-[-200px] left-[-300px] w-[900px] h-[900px] rounded-full pointer-events-none z-0 blur-3xl"
+        className="absolute top-[-200px] left-[-300px] w-[900px] h-[900px] rounded-full pointer-events-none z-0 blur-3xl"
         style={{
           background:
-            'radial-gradient(circle, rgba(0,133,255,calc(var(--glow-opacity) * 0.25)) 0%, transparent 70%)',
+            'radial-gradient(circle, rgba(0,133,255,var(--glow-opacity)) 0%, transparent 70%)',
         }}
       />
-      {/* Right Glow (Top Right Half Inside) */}
       <div
         className="absolute top-[-200px] right-[-300px] w-[900px] h-[900px] rounded-full pointer-events-none z-0 blur-3xl"
         style={{
           background:
-            'radial-gradient(circle, rgba(0,133,255,calc(var(--glow-opacity) * 0.25)) 0%, transparent 70%)',
+            'radial-gradient(circle, rgba(0,133,255,var(--glow-opacity)) 0%, transparent 70%)',
         }}
       />
 
