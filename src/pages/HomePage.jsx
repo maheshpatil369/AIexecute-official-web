@@ -27,47 +27,38 @@ const itemVariants = {
 const HeroSection = ({ opacity }) => {
   return (
     <div
-      className="relative z-10 flex flex-col min-h-screen text-center px-6"
+      className="relative z-10 flex flex-col items-center min-h-screen text-center px-6"
       style={{ opacity: opacity, transition: 'opacity 0.3s ease-out' }}
     >
-      {/* Spacer to push content down */}
-      <div className="flex-grow" style={{ flexGrow: 1.5 }}></div>
-
-      {/* This container centers the logo and the text block below it */}
-      <motion.div
-        className="flex flex-col items-center"
+      {/* Bigger logo pushed down */}
+      <motion.img
+        src={AILogo}
+        alt="AIExecute Logo"
+        className="w-80 h-auto md:w-[24rem] mb-8 mt-32" // bigger + pushed down
+        variants={itemVariants}
         initial="hidden"
         animate="visible"
-        variants={containerVariants}
+      />
+
+      {/* Text directly below logo */}
+      <motion.div
+        variants={itemVariants}
+        initial="hidden"
+        animate="visible"
+        className="flex flex-col items-center"
       >
-        {/* Centered Logo */}
-        <motion.img
-          src={AILogo}
-          alt="AIExecute Logo"
-          className="w-64 h-auto md:w-80 mb-12" 
-          variants={itemVariants}
-        />
-        
-        {/* All text content with unified styling */}
-        <motion.div 
-          variants={itemVariants} 
-          className="flex flex-col items-center"
-        >
-          <h1 className="text-2xl md:text-3xl uppercase tracking-[0.35em] font-semibold rainbow-text mb-4">
-            Welcome to AIExecute !
-          </h1>
-          <p className="text-base md:text-lg uppercase tracking-[0.35em] font-semibold rainbow-text max-w-2xl">
-            Your one-stop platform to create AI, drive innovation and Learn Tech shaping the future.
-          </p>
-        </motion.div>
+        <h1 className="text-2xl md:text-3xl uppercase tracking-[0.35em] font-semibold rainbow-text mb-4">
+          Welcome to AIExecute !
+        </h1>
+        <p className="font- poppins text-base md:text-lg uppercase tracking-[0.35em] font-semibold rainbow-text max-w-2xl">
+  Your one-stop platform to create AI, drive innovation and Learn Tech shaping the future.
+</p>
+
       </motion.div>
 
-      {/* Spacer to push tagline to the bottom */}
-      <div className="flex-grow" style={{ flexGrow: 2 }}></div>
-
-      {/* Bottom Tagline, positioned very close to the bottom */}
+      {/* Bottom tagline */}
       <motion.p
-        className="text-sm md:text-base uppercase tracking-[0.35em] font-semibold rainbow-text pb-3"
+        className="absolute bottom-4 text-sm md:text-base uppercase tracking-[0.35em] font-semibold rainbow-text"
         variants={itemVariants}
         initial="hidden"
         animate="visible"
@@ -77,6 +68,8 @@ const HeroSection = ({ opacity }) => {
     </div>
   );
 };
+
+
 
 
 

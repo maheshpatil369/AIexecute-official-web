@@ -6,6 +6,10 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+      inter: ['Inter', 'sans-serif'],
+      orbitron: ['Orbitron', 'sans-serif'],
+      rajdhani: ['Rajdhani', 'sans-serif'],
       },
       animation: {
         'gradient-x': 'gradient-x 13s ease infinite',

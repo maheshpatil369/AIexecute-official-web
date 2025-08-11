@@ -43,7 +43,7 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* --- Description Section (2 Boxes) --- */}
+        {/* --- Replaced Description Section with new content --- */}
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-24"
           variants={containerVariants}
@@ -51,21 +51,29 @@ const About = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
+          {/* Learning Solutions Section */}
           <motion.div className="relative group" variants={itemVariants}>
             <div className="absolute -inset-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-300"></div>
             <div className="relative p-8 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 h-full">
-              <h3 className="text-2xl font-bold mb-4 text-white">Our Journey</h3>
-              <p className="text-gray-400 leading-relaxed">
-                AIExecute was born from a vision to bridge the gap between complex ideas and tangible, high-impact solutions. We started as a small team of passionate innovators and have grown into a powerhouse of creativity and technical excellence, dedicated to pushing the boundaries of what's possible in the digital realm.
+              <h3 className="text-2xl font-bold mb-4 text-white">LEARNING SOLUTIONS</h3>
+              <p className="text-gray-400 leading-relaxed text-center">
+                BUILDING A FUTURE-READY GENERATION BY DELIVERING TRANSFORMATIVE LEARNING EXPERIENCES IN ARTIFICIAL INTELLIGENCE, TECHNOLOGY, INNOVATION AND BUSINESS STRATEGY.
+              </p>
+              <p className="text-purple-400 font-semibold mt-4 text-center text-xl italic">
+                Adapt - Implement - Evolve
               </p>
             </div>
           </motion.div>
+          {/* Business Solutions Section */}
           <motion.div className="relative group" variants={itemVariants}>
             <div className="absolute -inset-1.5 bg-gradient-to-r from-cyan-600 to-teal-600 rounded-2xl blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-300"></div>
             <div className="relative p-8 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 h-full">
-              <h3 className="text-2xl font-bold mb-4 text-white">Our Philosophy</h3>
-              <p className="text-gray-400 leading-relaxed">
-                We believe in a collaborative and client-centric approach. For us, every project is a partnership. We dive deep to understand your unique challenges and goals, ensuring that the solutions we deliver are not just technologically advanced but also perfectly aligned with your strategic objectives for sustainable growth.
+              <h3 className="text-2xl font-bold mb-4 text-white">BUSINESS SOLUTIONS</h3>
+              <p className="text-gray-400 leading-relaxed text-center">
+                HELPING BUSINESSES UNLOCK GROWTH THROUGH TAILORED AI SOLUTIONS, STRATEGIC CONSULTING, INNOVATION SERVICES AND DIGITAL TRANSFORMATION.
+              </p>
+              <p className="text-purple-400 font-semibold mt-4 text-center text-xl italic">
+                Assess - Innovate - Empower
               </p>
             </div>
           </motion.div>
