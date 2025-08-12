@@ -37,16 +37,16 @@ const HeroSection = () => {
       </motion.p>
 
       {/* Bottom Gradient Bar */}
-      <motion.div
-        className="px-6 py-3 bg-gradient-to-r from-green-300/10 via-purple-400/10 to-purple-500/10 rounded-sm"
-        variants={itemVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <p className="bg-gradient-to-r from-green-300 via-blue-400 to-purple-500 bg-clip-text text-transparent font-semibold tracking-[0.35em] text-lg md:text-xl uppercase">
-          Learn • Build • Grow • Execute
-        </p>
-      </motion.div>
+     <motion.div
+  variants={itemVariants}
+  initial="hidden"
+  animate="visible"
+>
+  <p className="bg-gradient-to-r from-green-300 via-blue-400 to-purple-500 bg-clip-text text-transparent font-semibold tracking-[0.35em] text-lg md:text-xl uppercase">
+    Learn • Build • Grow • Execute
+  </p>
+</motion.div>
+
     </div>
   );
 };
