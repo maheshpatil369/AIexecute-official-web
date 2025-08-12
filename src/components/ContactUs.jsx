@@ -1,182 +1,121 @@
-// src/pages/Contact.jsx
+import React from 'react';
+import { motion } from 'framer-motion';
+import { MoveUpRight, Youtube, Instagram, Linkedin, Mail } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+import AILogo from '../assets/bg-aiexecute.png';
+// CORRECTED FILE PATHS
+import Alex from '../assets/Alex Transparent.png'; 
+import Alexi from '../assets/Alexi Transparent.png';
 
-import React from "react";
-import { motion } from "framer-motion";
-import {
-  Calendar,
-  Instagram,
-  Youtube,
-  Linkedin,
-  ArrowRight,
-  MoveUpRight,
-} from "lucide-react";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-};
-
-const socialLinks = [
+// Data for the contact cards, matching the design
+const contactLinks = [
   {
-    name: "Instagram",
-    href: "#",
-    icon: (
-      <div
-        className="p-1 rounded-full bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#dc2743]
-        hover:scale-110 transition-transform duration-300 flex items-center justify-center shadow-lg hover:shadow-orange-500/50"
-        style={{ width: 44, height: 44 }}
-      >
-        <Instagram size={28} className="text-white" />
-      </div>
-    ),
+    name: "Our Brochure",
+    description: "A complete guide to our mission, services, and initiatives driving AI, tech, and business innovation.",
+    icon: <img src={AILogo} alt="AIExecute Logo" className="w-10 h-10" />,
+    href: "#", // Add your brochure link here
   },
   {
     name: "YouTube",
-    href: "#",
-    icon: (
-      <Youtube
-        size={32}
-        className="text-red-600 hover:text-red-700 transition-colors duration-300 hover:drop-shadow-[0_0_8px_#ff0000aa]"
-      />
-    ),
+    description: "Watch our videos in English, Hindi and Marathi to learn and explore AI, tech, and innovation.",
+    icon: <div className="bg-red-500 p-2 rounded-full"><Youtube size={24} className="text-white" /></div>,
+    href: "#", // Add your YouTube link here
+  },
+  {
+    name: "Instagram",
+    description: "Catch our daily reels and stories on diverse AI & tech topics, shared in a unique and engaging format.",
+    icon: <div className="bg-gradient-to-br from-purple-600 via-pink-500 to-red-500 p-2 rounded-full"><Instagram size={24} className="text-white" /></div>,
+    href: "#", // Add your Instagram link here
   },
   {
     name: "LinkedIn",
-    href: "#",
-    icon: (
-      <Linkedin
-        size={32}
-        className="text-blue-600 hover:text-blue-700 transition-colors duration-300 hover:drop-shadow-[0_0_8px_#0066ffaa]"
-      />
-    ),
+    description: "Connect with us for professional updates, industry insights, and opportunities to grow.",
+    icon: <div className="bg-blue-600 p-2 rounded-full"><Linkedin size={24} className="text-white" /></div>,
+    href: "#", // Add your LinkedIn link here
+  },
+  {
+    name: "Mail",
+    description: "Reach us anytime for queries, collaborations, or service requests.",
+    icon: <div className="bg-gray-600 p-2 rounded-full"><Mail size={24} className="text-white" /></div>,
+    href: "mailto:contact@aiexecute.com",
+  },
+  {
+    name: "WhatsApp",
+    description: "Chat or call us instantly for quick support and inquiries.",
+    icon: <div className="bg-green-500 p-2 rounded-full"><FaWhatsapp size={24} className="text-white" /></div>,
+    href: "#", // Add your WhatsApp link here
   },
 ];
 
-const Contact = () => {
+const ContactCard = ({ item }) => (
+  <motion.a
+    href={item.href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="relative group h-full flex flex-col p-6 rounded-2xl bg-[#0A0F2B] border border-white/10 min-h-[180px]"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+    viewport={{ once: true, amount: 0.5 }}
+    whileHover={{ y: -5, scale: 1.02, boxShadow: '0 8px 20px rgba(0, 0, 0, 0.4)' }}
+  >
+    <div className="flex items-center gap-4 mb-3">
+      {item.icon}
+      <h3 className="text-xl font-bold text-white">{item.name}</h3>
+    </div>
+    <p className="text-gray-400 text-sm flex-grow">{item.description}</p>
+    <MoveUpRight className="absolute bottom-4 right-4 text-gray-500 group-hover:text-purple-400 transition-colors" />
+  </motion.a>
+);
+
+const ContactUs = () => {
   return (
-    <div className="w-full text-white px-4 md:px-8 lg:px-16 min-h-screen flex flex-col justify-between">
-      {/* Top Section */}
-      <div className="max-w-4xl mx-auto w-full pt-12">
-        {/* Header */}
+    <div className="relative w-full text-white px-4 md:px-8 lg:px-16 min-h-screen flex flex-col justify-center py-16 overflow-hidden" id="contact">
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        {/* Title Section */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-4 text-center"
+          className="text-center mb-16"
         >
-          <h1 className="text-[2.2rem] md:text-[3rem] font-extrabold uppercase tracking-[0.25em] leading-tight">
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-              Contact Us
-            </span>
+          <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-[0.35em] rainbow-text">
+            GET IN TOUCH
           </h1>
-          <p className="text-gray-400 mt-1 text-base md:text-lg font-light">
-            Let's connect. We’re excited to hear from you.
-          </p>
         </motion.div>
 
-        {/* Email */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="text-purple-300 font-medium text-center mb-8 text-base md:text-lg tracking-wide"
-        >
-          @contact@aiexecute.com
-        </motion.p>
-
-        {/* Buttons */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-4 mb-12 flex flex-col items-center"
-        >
-          <motion.a
-            href="#"
-            variants={itemVariants}
-            className="group flex items-center justify-center gap-3 w-full max-w-md py-3 px-6
-            rounded-lg border border-white/20 bg-white/5 hover:border-purple-500/60 hover:bg-purple-500/10
-            text-sm md:text-base font-medium transition-all duration-300 shadow-sm hover:shadow-purple-500/30"
-            whileHover={{ y: -3 }}
-          >
-            <Calendar className="text-purple-400 group-hover:text-pink-400 transition-colors duration-300" />
-            Build with AIExecute - Schedule our Meet!
-            <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </motion.a>
-
-          <motion.a
-            href="mailto:contact@aiexecute.com"
-            variants={itemVariants}
-            className="group flex items-center justify-center gap-3 w-full max-w-sm py-2.5 px-6
-            rounded-lg border border-white/20 bg-white/5 hover:border-pink-500/60 hover:bg-pink-500/10
-            text-sm md:text-base font-medium transition-all duration-300 shadow-sm hover:shadow-pink-500/20"
-            whileHover={{ y: -3 }}
-          >
-            Write to Us
-            <MoveUpRight className="text-purple-400 group-hover:text-pink-400 transition-colors duration-300" />
-          </motion.a>
-        </motion.div>
-        
-        {/* Call to Action Button */}
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex justify-center w-full mb-12"
-        >
-          <motion.button
-            className="w-auto py-3 px-10 rounded-lg text-base font-semibold text-white
-                       bg-gradient-to-r from-purple-500 to-pink-500
-                       hover:bg-gradient-to-l hover:from-yellow-400 hover:via-pink-500 hover:to-purple-500
-                       transition-all duration-500 shadow-lg hover:shadow-purple-500/40"
-            whileHover={{ y: -3 }}
-          >
-            Get In Touch
-          </motion.button>
-        </motion.div>
-
-        {/* Social Links */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex justify-center gap-8"
-        >
-          {socialLinks.map((link) => (
-            <motion.a
-              key={link.name}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={itemVariants}
-              whileHover={{ scale: 1.15 }}
-              className="inline-flex items-center justify-center"
-            >
-              {link.icon}
-            </motion.a>
+        {/* Contact Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {contactLinks.map((link) => (
+            <ContactCard key={link.name} item={link} />
           ))}
-        </motion.div>
+        </div>
+        
+        {/* Footer */}
+        <footer className="text-center text-gray-500 pt-20 text-sm tracking-wide">
+          © 2025 AIExecute. All Rights Reserved.
+        </footer>
       </div>
 
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
-        className="text-center text-gray-500 pb-4 text-xs tracking-wide"
-      >
-        © 2025 AIExecute. All Rights Reserved.
-      </motion.footer>
+      {/* Alex and Alexi Images */}
+      <motion.img
+        src={Alexi}
+        alt="Alexi Character"
+        className="hidden lg:block absolute bottom-0 left-0 h-1/2 object-contain"
+        initial={{ x: -100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+      />
+      <motion.img
+        src={Alex}
+        alt="Alex Character"
+        className="hidden lg:block absolute bottom-0 right-0 h-1/2 object-contain"
+        initial={{ x: 100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+      />
     </div>
   );
 };
 
-export default Contact;
+export default ContactUs;
