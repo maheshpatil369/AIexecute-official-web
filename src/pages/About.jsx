@@ -35,9 +35,15 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
-            Who <span className="rainbow-text">Are We?</span>
-          </h1>
+    <h1 className="text-[2.2rem] md:text-[3rem] font-extrabold uppercase tracking-[0.25em] leading-tight">
+  <span
+    className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent
+               hover:bg-gradient-to-r hover:from-pink-500 hover:via-red-500 hover:to-yellow-500
+               transition-all duration-500"
+  >
+    Who Are We?
+  </span>
+</h1> 
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
             At the intersection of innovation and execution, we are more than just a company—we are architects of the future.
           </p>

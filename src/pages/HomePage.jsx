@@ -14,18 +14,18 @@ const HeroSection = () => {
   const headingText = "Welcome to AIExecute...!";
 
   return (
-    <div className="relative z-10 flex flex-col items-center min-h-screen text-center px-6">
+    <div className="relative z-10 flex flex-col items-center min-h-screen text-center px-4 sm:px-6 justify-center">
       {/* Logo */}
       <motion.img
         src={AILogo}
         alt="AIExecute Logo"
-        className="w-80 h-auto md:w-[24rem] mb-8 mt-32"
+        className="w-56 sm:w-72 md:w-96 lg:w-[28rem] h-auto mb-4 sm:mb-6"
         variants={itemVariants}
         initial="hidden"
         animate="visible"
       />
 
-      {/* Heading */}
+      {/* Heading & Tagline */}
       <motion.div
         variants={itemVariants}
         initial="hidden"
@@ -33,7 +33,7 @@ const HeroSection = () => {
         className="flex flex-col items-center"
       >
         <motion.h1
-          className="text-2xl md:text-3xl uppercase tracking-[0.35em] font-semibold rainbow-text mb-4 flex flex-wrap justify-center"
+          className="text-xl sm:text-2xl md:text-3xl uppercase tracking-[0.25em] sm:tracking-[0.35em] font-semibold rainbow-text mb-3 sm:mb-4 flex flex-wrap justify-center"
           initial="hidden"
           animate="visible"
         >
@@ -49,15 +49,14 @@ const HeroSection = () => {
           ))}
         </motion.h1>
 
-        {/* Tagline */}
-        <p className="font-dancing text-base md:text-lg tracking-[0.05em] font-semibold rainbow-text max-w-2xl">
+        <p className="font-dancing text-sm sm:text-base md:text-lg tracking-[0.02em] sm:tracking-[0.05em] font-semibold rainbow-text max-w-sm sm:max-w-lg md:max-w-2xl px-2">
           YOUR ONE-STOP PLATFORM TO CREATE AI, DRIVE INNOVATION AND LEARN TECH SHAPING THE FUTURE.
         </p>
       </motion.div>
 
       {/* Bottom text */}
       <motion.p
-        className="absolute bottom-4 text-sm md:text-base uppercase tracking-[0.35em] font-semibold rainbow-text"
+        className="absolute bottom-3 sm:bottom-4 text-xs sm:text-sm md:text-base uppercase tracking-[0.2em] sm:tracking-[0.35em] font-semibold rainbow-text px-2"
         variants={itemVariants}
         initial="hidden"
         animate="visible"
@@ -67,6 +66,8 @@ const HeroSection = () => {
     </div>
   );
 };
+
+
 
 const HomePage = () => {
   useEffect(() => {
@@ -88,21 +89,21 @@ const HomePage = () => {
 
   return (
     <div
-      className="home-background relative"
+      className="home-background relative overflow-hidden"
       style={{
         '--glow-opacity': 1,
       }}
     >
       {/* Left and Right Light Glow */}
       <div
-        className="absolute top-[-120px] left-[-400px] w-[800px] h-[800px] rounded-full pointer-events-none z-0 blur-3xl"
+        className="absolute top-[-120px] left-[-400px] w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] rounded-full pointer-events-none z-0 blur-3xl"
         style={{
           background:
             'radial-gradient(circle, rgba(0,133,255,var(--glow-opacity)) 0%, transparent 70%)',
         }}
       />
       <div
-        className="absolute top-[-120px] right-[-400px] w-[800px] h-[800px] rounded-full pointer-events-none z-0 blur-3xl"
+        className="absolute top-[-120px] right-[-400px] w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] rounded-full pointer-events-none z-0 blur-3xl"
         style={{
           background:
             'radial-gradient(circle, rgba(0,133,255,var(--glow-opacity)) 0%, transparent 70%)',

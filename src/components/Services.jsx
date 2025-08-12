@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-// --- Import Logos ---
-// These paths assume your images are in 'src/assets/services-logo/'
 import logo1 from '../assets/services-logo/1.png';
 import logo2 from '../assets/services-logo/2.png';
 import logo3 from '../assets/services-logo/3.png';
@@ -24,8 +22,6 @@ import logo18 from '../assets/services-logo/18.png';
 import logo19 from '../assets/services-logo/19.png';
 import logo20 from '../assets/services-logo/20.png';
 
-
-// --- Service Data with Logos ---
 const allServices = [
   { title: "Artificial Intelligence", description: "We develop smart AI systems that automate reasoning, learning, and human-like interactions.", logo: logo1 },
   { title: "Data Science", description: "We build intelligent data solutions that turn complex datasets into actionable business insights.", logo: logo2 },
@@ -49,14 +45,11 @@ const allServices = [
   { title: "Cybersecurity", description: "We protect digital assets with security frameworks, testing and real-time monitoring.", logo: logo20 },
 ];
 
-
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
@@ -65,78 +58,92 @@ const cardVariants = {
   visible: {
     y: 0,
     opacity: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-    },
+    transition: { type: 'spring', stiffness: 100 },
   },
 };
 
 const Services = () => {
-  const [showAll, setShowAll] = useState(false);
-  const initialServices = allServices.slice(0, 6);
-  const servicesToShow = showAll ? allServices : initialServices;
+  const [visibleCount, setVisibleCount] = useState(6);
+
+  const handleViewMore = () => {
+    if (visibleCount < allServices.length) {
+      const remaining = allServices.length - visibleCount;
+      setVisibleCount(prev => prev + (remaining > 4 ? 4 : remaining));
+    } else {
+      setVisibleCount(6); // reset
+    }
+  };
+
+  const remainingCount =
+    visibleCount < allServices.length ? allServices.length - visibleCount : 0;
 
   return (
-    <div className="w-full text-white px-4 pt-0 pb-24 md:px-8 lg:px-16">
+    <div className="w-full text-white px-4 md:px-8 lg:px-16 pb-16">
       <div className="max-w-7xl mx-auto">
+        
+        {/* Title Section */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16 pt-24"
+          className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-[0.35em] rainbow-text mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-[0.25em] sm:tracking-[0.35em] rainbow-text mb-4 break-words max-w-xs sm:max-w-full mx-auto leading-snug">
             Our Services
           </h1>
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-2">
             We transform ideas into reality by offering a wide spectrum of services. Here's how we can help you excel.
           </p>
         </motion.div>
 
+        {/* Services Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {servicesToShow.map((service, index) => (
+          {allServices.slice(0, visibleCount).map((service, index) => (
             <motion.div
               key={index}
-              className="group relative overflow-hidden p-8 rounded-xl border border-white/10 bg-black/30 hover:bg-white/5 transition-all duration-300 cursor-pointer"
+              className="group relative overflow-hidden p-6 sm:p-8 rounded-xl border border-white/10 bg-black/30 hover:bg-white/5 transition-all duration-300 cursor-pointer"
               variants={cardVariants}
-              whileHover={{ y: -8, scale: 1.03, boxShadow: '0 10px 30px rgba(128, 0, 128, 0.3)' }}
+              whileHover={{ y: -6, scale: 1.02, boxShadow: '0 10px 25px rgba(128, 0, 128, 0.3)' }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
               
-              <div className="relative z-10">
-                {/* --- LAYOUT UPDATED HERE --- */}
-                <div className="flex items-center gap-5 mb-4">
-                  <img src={service.logo} alt={`${service.title} logo`} className="h-14 w-14" />
-                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">{service.title}</h3>
+              <div className="relative z-10 flex flex-col">
+                <div className="flex items-center gap-4 mb-3">
+                  <img src={service.logo} alt={`${service.title} logo`} className="h-12 w-12 sm:h-14 sm:w-14 object-contain" />
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 break-words">
+                    {service.title}
+                  </h3>
                 </div>
-                <p className="text-gray-400 text-base text-left">{service.description}</p>
+                <p className="text-gray-400 text-sm sm:text-base">{service.description}</p>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {!showAll && (
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
+        {/* View Button */}
+        <motion.div
+          className="text-center mt-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
+          <button
+            onClick={handleViewMore}
+            className="relative inline-block overflow-hidden text-white font-semibold py-2.5 sm:py-3 px-8 sm:px-10 rounded-lg border border-white/30 transition-all duration-300 text-base sm:text-lg shadow-lg hover:shadow-xl hover:border-white/60 hover:bg-white/10 ml-4"
           >
-            <button
-              onClick={() => setShowAll(true)}
-              className="relative inline-block overflow-hidden text-white font-semibold py-3 px-10 rounded-lg border border-white/30 transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:border-white/60 hover:bg-white/10"
-            >
-              <span className="relative z-10">View All Services</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-teal-500/20 via-purple-500/20 to-pink-500/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></span>
-            </button>
-          </motion.div>
-        )}
+            <span className="relative z-10">
+              {remainingCount > 0
+                ? `View ${remainingCount}+ More Projects`
+                : "View Less"}
+            </span>
+            <span className="absolute inset-0 bg-gradient-to-r from-teal-500/20 via-purple-500/20 to-pink-500/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></span>
+          </button>
+        </motion.div>
       </div>
     </div>
   );
