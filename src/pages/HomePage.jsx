@@ -19,7 +19,7 @@ const HeroSection = () => {
       <motion.img
         src={AILogo}
         alt="AIExecute Logo"
-className="w-56 sm:w-72 md:w-96 lg:w-[28rem] h-auto mb-6 mt-16"
+        className="w-56 sm:w-72 md:w-96 lg:w-[28rem] h-auto mb-6 mt-16"
         variants={itemVariants}
         initial="hidden"
         animate="visible"
@@ -75,20 +75,8 @@ const HomePage = () => {
 
   return (
     <div
-      className="home-background relative overflow-hidden bg-[#020B2D]"
-      style={{
-        "--glow-opacity": 1,
-      }}
+      className="home-background relative overflow-hidden bg-transparent"
     >
-      {/* Left Glow */}
-      <div
-        className="absolute top-1/2 -left-72 w-[500px] h-[500px] rounded-full bg-cyan-500/30 blur-[150px] transform -translate-y-1/2"
-      />
-      {/* Right Glow */}
-      <div
-        className="absolute top-1/2 -right-72 w-[500px] h-[500px] rounded-full bg-cyan-500/30 blur-[150px] transform -translate-y-1/2"
-      />
-
       {/* Hero Section */}
       <HeroSection />
 
