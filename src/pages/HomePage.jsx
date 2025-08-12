@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import Projects from "../components/Projects";
-import Services from "../components/Services";
 import ContactUs from "../components/ContactUs";
+import MiddlePage from "./MiddlePage"; // Import the new MiddlePage
 import AILogo from "../assets/bg-aiexecute.png";
 
 // Animation variants
@@ -38,14 +37,14 @@ const HeroSection = () => {
 
       {/* Bottom Gradient Bar */}
      <motion.div
-  variants={itemVariants}
-  initial="hidden"
-  animate="visible"
->
-  <p className="bg-gradient-to-r from-green-300 via-blue-400 to-purple-500 bg-clip-text text-transparent font-semibold tracking-[0.35em] text-lg md:text-xl uppercase">
-    Learn • Build • Grow • Execute
-  </p>
-</motion.div>
+        variants={itemVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <p className="bg-gradient-to-r from-green-300 via-blue-400 to-purple-500 bg-clip-text text-transparent font-semibold tracking-[0.35em] text-lg md:text-xl uppercase">
+          Learn • Build • Grow • Execute
+        </p>
+      </motion.div>
 
     </div>
   );
@@ -53,40 +52,15 @@ const HeroSection = () => {
 
 
 const HomePage = () => {
-  // Scroll glow effect
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const maxScroll = 300;
-      const opacity = Math.max(0, 1 - scrollTop / maxScroll);
-      document
-        .querySelector(".home-background")
-        ?.style.setProperty("--glow-opacity", opacity.toString());
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    document.body.style.overflowX = "hidden";
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      document.body.style.overflowX = "auto";
-    };
-  }, []);
-
   return (
-    <div
-      className="home-background relative overflow-hidden bg-transparent"
-    >
+    <div className="home-background relative overflow-hidden bg-transparent">
       {/* Hero Section */}
       <HeroSection />
 
       {/* Sections */}
       <div className="bg-inherit relative z-10">
-        <section id="services">
-          <Services />
-        </section>
-        <section id="projects">
-          <Projects />
+        <section id="middle">
+            <MiddlePage />
         </section>
         <section id="contact">
           <ContactUs />

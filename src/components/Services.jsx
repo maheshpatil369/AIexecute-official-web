@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 import logo1 from '../assets/services-logo/1.png';
@@ -63,22 +63,9 @@ const cardVariants = {
 };
 
 const Services = () => {
-  const [visibleCount, setVisibleCount] = useState(6);
-
-  const handleViewMore = () => {
-    if (visibleCount < allServices.length) {
-      const remaining = allServices.length - visibleCount;
-      setVisibleCount(prev => prev + (remaining > 4 ? 4 : remaining));
-    } else {
-      setVisibleCount(6); // reset
-    }
-  };
-
-  const remainingCount =
-    visibleCount < allServices.length ? allServices.length - visibleCount : 0;
-
   return (
-    <div className="w-full text-white px-4 md:px-8 lg:px-16 pb-16">
+    // Added pt-24 for top padding to avoid overlap with navigation
+    <div className="w-full text-white px-4 md:px-8 lg:px-16 pb-16 pt-24">
       <div className="max-w-7xl mx-auto">
         
         {/* Title Section */}
@@ -103,7 +90,8 @@ const Services = () => {
           initial="hidden"
           animate="visible"
         >
-          {allServices.slice(0, visibleCount).map((service, index) => (
+          {/* Now mapping over all services */}
+          {allServices.map((service, index) => (
             <motion.div
               key={index}
               className="group relative overflow-hidden p-6 sm:p-8 rounded-xl border border-white/10 bg-black/30 hover:bg-white/5 transition-all duration-300 cursor-pointer"
@@ -123,26 +111,6 @@ const Services = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* View Button */}
-        <motion.div
-          className="text-center mt-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <button
-            onClick={handleViewMore}
-            className="relative inline-block overflow-hidden text-white font-semibold py-2.5 sm:py-3 px-8 sm:px-10 rounded-lg border border-white/30 transition-all duration-300 text-base sm:text-lg shadow-lg hover:shadow-xl hover:border-white/60 hover:bg-white/10 ml-4"
-          >
-            <span className="relative z-10">
-              {remainingCount > 0
-                ? `View ${remainingCount}+ More Projects`
-                : "View Less"}
-            </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-teal-500/20 via-purple-500/20 to-pink-500/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></span>
-          </button>
         </motion.div>
       </div>
     </div>

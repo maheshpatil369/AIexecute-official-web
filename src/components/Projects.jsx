@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Star } from 'lucide-react';
 import {
@@ -214,7 +214,6 @@ const ProjectCard = ({ project }) => (
   >
     <div className="absolute -inset-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-300"></div>
     <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/60 backdrop-blur-sm h-full flex flex-col">
-      {/* --- CLIENT PROJECT BADGE ADDED HERE --- */}
       {project.isClient && (
         <div className="absolute top-4 right-4 bg-purple-600/50 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 backdrop-blur-sm border border-white/20">
           <Star size={12} className="text-yellow-300" />
@@ -255,15 +254,9 @@ const ProjectCard = ({ project }) => (
 );
 
 const Projects = () => {
-  const [visibleCount, setVisibleCount] = useState(3);
-  const projectsToShow = allProjects.slice(0, visibleCount);
-
-  const handleSeeMore = () => {
-    setVisibleCount(prevCount => Math.min(prevCount + 3, allProjects.length));
-  };
-
   return (
-    <div className="w-full text-white px-4 pt-0 pb-24 md:px-8 lg:px-16" id="projects">
+    // Added pt-24 for top padding to avoid overlap with navigation
+    <div className="w-full text-white px-4 pt-24 pb-24 md:px-8 lg:px-16" id="projects">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -272,7 +265,6 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          {/* --- HEADING UPDATED HERE --- */}
           <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-[0.35em] rainbow-text mb-6">
             Our Projects
           </h1>
@@ -282,26 +274,11 @@ const Projects = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projectsToShow.map((project) => (
+          {/* Now mapping over all projects */}
+          {allProjects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
         </div>
-
-        {visibleCount < allProjects.length && (
-          <motion.div
-            className="text-center mt-16"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-          >
-            <button
-              onClick={handleSeeMore}
-              className="relative inline-flex items-center gap-2 overflow-hidden text-white font-semibold py-3 px-10 rounded-lg border border-white/30 transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:border-white/60 bg-white/10 hover:bg-white/20"
-            >
-              See More <ArrowRight size={18} />
-            </button>
-          </motion.div>
-        )}
       </div>
     </div>
   );

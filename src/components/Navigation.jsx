@@ -1,14 +1,15 @@
 import React from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
+// Updated navLinks array for the new routing structure
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "Services", path: "/#services" },
-  { name: "Projects", path: "/#projects" },
+  { name: "Services", path: "/services" },
+  { name: "Projects", path: "/projects" },
   { name: "Careers", path: "/careers" },
   { name: "Board", path: "/board" },
-  { name: "Contact", path: "/#contact" },
+  { name: "Contact", path: "/#contact" }, // This will scroll on the homepage
 ];
 
 const Navigation = ({ isVisible }) => {
@@ -17,11 +18,14 @@ const Navigation = ({ isVisible }) => {
 
   const handleScrollLink = (sectionId) => {
     if (location.pathname !== "/") {
-      navigate("/", { replace: false });
+      // If we are not on the homepage, navigate there first
+      navigate("/");
+      // Then, scroll to the section after a short delay to allow the page to change
       setTimeout(() => {
         document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
       }, 200);
     } else {
+      // If we are already on the homepage, just scroll
       document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -32,13 +36,13 @@ const Navigation = ({ isVisible }) => {
         isVisible ? "translate-y-0" : "-translate-y-24"
       }`}
     >
-      <nav className="flex gap-8 px-8 py-3 rounded-2xl bg-[#0B1224]/80 backdrop-blur-md shadow-lg border border-white/5">
+      <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 px-6 py-3 rounded-2xl bg-[#0B1224]/80 backdrop-blur-md shadow-lg border border-white/5">
         {navLinks.map((link) =>
           link.path.startsWith("/#") ? (
             <button
               key={link.name}
               onClick={() => handleScrollLink(link.path.replace("/#", ""))}
-              className="text-[#6EE7B7] font-semibold text-lg hover:text-white transition-colors duration-300"
+              className="text-[#6EE7B7] font-semibold text-base md:text-lg hover:text-white transition-colors duration-300"
             >
               {link.name}
             </button>
@@ -48,7 +52,7 @@ const Navigation = ({ isVisible }) => {
               to={link.path}
               end={link.path === "/"}
               className={({ isActive }) =>
-                `font-semibold text-lg transition-colors duration-300 ${
+                `font-semibold text-base md:text-lg transition-colors duration-300 ${
                   isActive ? "text-white" : "text-[#6EE7B7] hover:text-white"
                 }`
               }

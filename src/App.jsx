@@ -5,9 +5,10 @@ import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Board from "./pages/Board";
 import Careers from "./pages/Careers";
+import Services from "./components/Services"; // Import Services
+import Projects from "./components/Projects"; // Import Projects
 
 function App() {
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [headerVisible, setHeaderVisible] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -24,7 +25,6 @@ function App() {
         setHeaderVisible(true);
       }
       setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop);
-      setScrollPosition(currentScrollTop);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -40,6 +40,13 @@ function App() {
         setIsLoaded(true);
         document.body.style.overflow = "auto";
       };
+    } else {
+        // Fallback for when video doesn't load
+        const timer = setTimeout(() => {
+            setIsLoaded(true);
+            document.body.style.overflow = "auto";
+        }, 2000); // Or some reasonable timeout
+        return () => clearTimeout(timer);
     }
   }, []);
 
@@ -81,6 +88,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/board" element={<Board />} />
           <Route path="/careers" element={<Careers />} />
         </Routes>
