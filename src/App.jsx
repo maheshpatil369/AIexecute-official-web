@@ -60,7 +60,7 @@ function App() {
         muted
         playsInline
       >
-        <source src="/Website BG Video.mp4" type="video/mp4" />
+        <source src="/Website BG Video Loop.mp4" type="video/mp4" />
       </video>
 
       {/* 🔹 Loader Video */}
