@@ -60,8 +60,8 @@ const HomePage = () => {
       {/* Sections */}
       <div className="bg-inherit relative z-10">
         <section id="middle">
-            <MiddlePage />
         </section>
+            <MiddlePage />
         <section id="contact">
           <ContactUs />
         </section>

@@ -4,42 +4,51 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import AILogo from '../assets/bg-aiexecute.png';
 
-// Data for the six cards with correct links
+// Import local images for the cards
+import AiexecuteImg from '../assets/Homepage logo/1.png';
+import servicesImg from '../assets/Homepage logo/2.png';
+import projectsImg from '../assets/Homepage logo/3.png';
+import departmentsImg from '../assets/Homepage logo/4.png';
+import boardImg from '../assets/Homepage logo/5.png';
+import internshipsImg from '../assets/Homepage logo/6.png';
+
+
+// Data for the six cards with correct links and images
 const middlePageData = [
   {
     title: "What is AIExecute?",
     description: "We are an innovation-driven company offering a one-stop solution for individuals, professionals, and businesses.",
-    image: "https://placehold.co/600x400/020018/1e1b4b?text=AIExecute",
+    image: AiexecuteImg,
     link: "/about"
   },
   {
     title: "Our Services",
     description: "We offer 20 cutting-edge AI, software and business transformation services tailored to diverse industry needs.",
-    image: "https://placehold.co/600x400/020018/312e81?text=Services",
+    image: servicesImg,
     link: "/services"
   },
   {
     title: "Our Projects",
     description: "We build industry-grade AI solutions across 20+ booming sectors, delivering measurable impact.",
-    image: "https://placehold.co/600x400/020018/4338ca?text=Projects",
+    image: projectsImg,
     link: "/projects"
   },
   {
     title: "Our Departments",
     description: "Our specialized departments unite experts from AI, data, coding, innovation and creative domains.",
-    image: "https://placehold.co/600x400/020018/5b21b6?text=Departments",
+    image: departmentsImg,
     link: "/careers"
   },
   {
     title: "Our Board",
     description: "Led by a visionary board of members driving innovation with strategic execution.",
-    image: "https://placehold.co/600x400/020018/7e22ce?text=Board",
+    image: boardImg,
     link: "/board"
   },
   {
     title: "Join us - Internships",
     description: "Kickstart your career with hands-on AIExecute internships, working on real projects with industry leaders.",
-    image: "https://placehold.co/600x400/020018/a855f7?text=Internships",
+    image: internshipsImg,
     link: "/careers"
   },
 ];
@@ -98,10 +107,10 @@ const MiddlePage = () => {
           className="text-center mb-12 sm:mb-16"
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-[0.2em] sm:tracking-[0.35em] rainbow-text mb-6">
-            Explore AIExecute
+            Discover AIExecute
           </h1>
           <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto">
-            Discover the core of our mission, services, and the people who make it all happen.
+            Discover AIExecute: Enter the execution grid where every section is a new data point in our living network.
           </p>
         </motion.div>
 

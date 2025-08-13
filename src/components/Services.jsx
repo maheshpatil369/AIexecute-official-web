@@ -79,7 +79,7 @@ const Services = () => {
             Our Services
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-2">
-            We transform ideas into reality by offering a wide spectrum of services. Here's how we can help you excel.
+          We transform ideas into reality by offering a wide spectrum of services.
           </p>
         </motion.div>
 
