@@ -42,7 +42,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/a78bfa?text=Virtual+Real+Estate",
     tech: ["React", "Go"],
     liveUrl: "#",
-    isClient: true,
+    isClient: false,
   },
   {
     title: "Green Watt: Household Energy Consumption Tracker",
@@ -50,7 +50,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/94a3b8?text=Green+Watt",
     tech: ["Next.js", "PostgreSQL"],
     liveUrl: "#",
-    isClient: true,
+    isClient: false,
   },
   {
     title: "MeddiSynx: Scalable Synthetic Data Generation",
@@ -58,7 +58,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/a78bfa?text=MeddiSynx",
     tech: ["Python", "TensorFlow"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "AstroLynx: Navigating Indian Satellite Data",
@@ -66,7 +66,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/94a3b8?text=AstroLynx",
     tech: ["Python", "GraphQL"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "Vision YT: YouTube Growth Analysis",
@@ -74,7 +74,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/94a3b8?text=Vision+YT",
     tech: ["Next.js", "Elasticsearch", "Kibana"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "AI Vocal Coach",
@@ -82,7 +82,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/a78bfa?text=AI+Vocal+Coach",
     tech: ["React", "Python"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "FitnestX: Gamified Workout Challenge App",
@@ -90,7 +90,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/94a3b8?text=FitnestX",
     tech: ["React Native", "MongoDB"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "KrishiConnect: Farmer Assistant App",
@@ -98,7 +98,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/94a3b8?text=KrishiConnect",
     tech: ["React Native", "Express", "Node.js"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "PlanPal: Personalized Travel Itinerary Website",
@@ -106,7 +106,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/94a3b8?text=PlanPal",
     tech: ["Vue.js", "Express", "PostgreSQL"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "Intelligent Nutrition Data Dashboard",
@@ -114,7 +114,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/a78bfa?text=Nutrition+Dashboard",
     tech: ["React", "MongoDB"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "Automated Sports Match Analyzer",
@@ -122,7 +122,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/a78bfa?text=Sports+Analyzer",
     tech: ["Python", "TensorFlow"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "EcoFootprint: Personal Carbon Impact Tracker",
@@ -130,7 +130,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/94a3b8?text=EcoFootprint",
     tech: ["Next.js", "PostgreSQL"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "Real Estate Price Forecasting Engine",
@@ -138,7 +138,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/a78bfa?text=Real+Estate+Forecasting",
     tech: ["Python", "TensorFlow"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "Decentralized E-Commerce Marketplace",
@@ -146,7 +146,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/94a3b8?text=Decentralized+E-Commerce",
     tech: ["Solidity", "Ethers.js"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "Smart Vehicle Maintenance Reminder System",
@@ -154,7 +154,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/94a3b8?text=Vehicle+Reminder",
     tech: ["Node.js", "Express", "MongoDB"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "Integrated Streaming & Box Office Analytics",
@@ -162,7 +162,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/a78bfa?text=Streaming+Analytics",
     tech: ["Python", "PostgreSQL"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "Reinforcement Learning Trading Agent",
@@ -170,7 +170,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/a78bfa?text=Trading+Agent",
     tech: ["Python", "TensorFlow"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "IPL Insights 2025",
@@ -178,7 +178,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/94a3b8?text=IPL+Insights",
     tech: ["React", "Python", "GraphQL"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "AI Campaign Content Generator",
@@ -186,7 +186,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/a78bfa?text=Content+Generator",
     tech: ["Next.js", "Python"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
   {
     title: "Interactive AI Bot",
@@ -194,7 +194,7 @@ const allProjects = [
     image: "https://placehold.co/600x400/020018/a78bfa?text=Interactive+AI+Bot",
     tech: ["React", "Python", "WebAssembly"],
     liveUrl: "#",
-    isClient: true,
+    // isClient: true,
   },
 ];
 
