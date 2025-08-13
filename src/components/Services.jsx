@@ -21,6 +21,7 @@ import logo17 from '../assets/services-logo/17.png';
 import logo18 from '../assets/services-logo/18.png';
 import logo19 from '../assets/services-logo/19.png';
 import logo20 from '../assets/services-logo/20.png';
+import logo21 from '../assets/services-logo/21.png';
 
 const allServices = [
   { title: "Artificial Intelligence", description: "We develop smart AI systems that automate reasoning, learning, and human-like interactions.", logo: logo1 },
@@ -43,6 +44,8 @@ const allServices = [
   { title: "Blockchain", description: "We build secure blockchain solutions including DApps, smart contracts, and decentralized systems.", logo: logo18 },
   { title: "Quantitative Research", description: "We design data-driven financial and market models that optimize risk, return, and forecasting accuracy.", logo: logo19 },
   { title: "Cybersecurity", description: "We protect digital assets with security frameworks, testing and real-time monitoring.", logo: logo20 },
+  { title: "Creative Media Production", description: "We provide end-to-end video editing, motion graphics, and videography services to craft impactful visual stories powered by technology.", logo: logo21 },
+
 ];
 
 const containerVariants = {
@@ -79,7 +82,7 @@ const Services = () => {
             Our Services
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-2">
-          We transform ideas into reality by offering a wide spectrum of services.
+          We transform ideas into reality by offering a wide spectrum of services.
           </p>
         </motion.div>
 

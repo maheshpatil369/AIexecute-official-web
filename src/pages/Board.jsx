@@ -74,7 +74,7 @@ const Board = () => {
             Meet The <span className="rainbow-text">AIExecute Board</span>
           </h1>
           <p className="text-sm sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-2">
-            The visionaries, strategists, and innovators leading our charge into the future.
+           The navigators steering AIExecute through every frontier of innovation.
           </p>
         </motion.div>
 

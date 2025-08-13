@@ -269,7 +269,7 @@ const Projects = () => {
             Our Projects
           </h1>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            A glimpse into our world of innovation, including successful client collaborations.
+           A glimpse into our world of innovation, covering every frontier of technology.
           </p>
         </motion.div>
 

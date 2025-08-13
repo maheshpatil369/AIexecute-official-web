@@ -64,10 +64,13 @@ const departments = [
 ];
 
 const roles = [
-    "Data Science", "Data Analysis", "Business Intelligence",
-    "Machine Learning Engineer", "AI Research", "Software Development",
-    "Product Management", "UI/UX Design", "Content Creation", "Digital Marketing"
+    "Data Science", "Data Analytics", "Business Intelligence", "Data Engineering", "Cloud & Big Data",
+    "Artificial Intelligence", "Machine Learning", "Computer Vision", "Generative AI", "Quant Research",
+    "Web Development", "App Development", "Software Engineering", "Automation", "Cybersecurity Analyst",
+    "UI/UX Design", "AR/VR Development", "Game Design & Development", "3D Modelling", "Blockchain Development",
+    "Digital Content Editing", "Content Strategy", "Growth Strategist", "Growth Associate"
 ];
+
 
 const Careers = () => {
   return (
@@ -84,7 +87,7 @@ const Careers = () => {
        OUR <span className="rainbow-text">DEPARTMENTS</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
-            We're building a team of innovators, dreamers, and doers. Find your place at AIExecute and help us shape the world of tomorrow.
+           The specialized engines driving execution across every domain we touch.
           </p>
         </motion.div>
 
@@ -134,7 +137,7 @@ const Careers = () => {
                     JOIN US TO BUILD, GROW AND EXECUTE!
                 </p>
                 <a
-                    href="#" // Link to your application form
+                    href="http://linktr.ee/AIExecute" // Link to your application form
                     className="relative inline-flex items-center gap-2 overflow-hidden text-white font-semibold py-3 px-12 rounded-lg border border-white/30 transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:border-white/60 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 transform hover:scale-105"
                 >
                     Apply Now <ArrowRight size={18} />
