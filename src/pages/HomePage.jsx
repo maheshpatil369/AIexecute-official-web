@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ContactUs from "../components/ContactUs";
-import MiddlePage from "./MiddlePage"; 
+import MiddlePage from "./MiddlePage";
 import AILogo from "../assets/bg-aiexecute.png";
 
 const itemVariants = {
@@ -11,19 +11,17 @@ const itemVariants = {
 
 const HeroSection = () => {
   return (
-    <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4 sm:px-6">
-      
+    <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4 sm:px-6 lg:px-8">
       <motion.img
         src={AILogo}
         alt="AIExecute Logo"
-        className="w-66 sm:w-72 md:w-96 lg:w-[28rem] h-auto mb-6 mt-16"
+        className="w-72 sm:w-80 md:w-96 lg:w-[28rem] h-auto mb-6 mt-20 md:mt-16"
         variants={itemVariants}
         initial="hidden"
         animate="visible"
       />
-
       <motion.p
-        className="text-white text-sm sm:text-base md:text-lg max-w-3xl tracking-widest font-light uppercase mb-10"
+        className="text-white text-base sm:text-lg md:text-lg max-w-xs sm:max-w-md md:max-w-3xl tracking-widest font-light uppercase mb-10"
         variants={itemVariants}
         initial="hidden"
         animate="visible"
@@ -31,8 +29,7 @@ const HeroSection = () => {
         YOUR ONE-STOP PLATFORM TO BUILD AI, <br />
         DRIVE INNOVATION AND LEARN TECH SHAPING THE FUTURE.
       </motion.p>
-
-     <motion.div
+      <motion.div
         variants={itemVariants}
         initial="hidden"
         animate="visible"
@@ -41,21 +38,18 @@ const HeroSection = () => {
           Learn • Build • Grow • Execute
         </p>
       </motion.div>
-
     </div>
   );
 };
-
 
 const HomePage = () => {
   return (
     <div className="home-background relative overflow-hidden bg-transparent">
       <HeroSection />
-
       <div className="bg-inherit relative z-10">
         <section id="middle">
+          <MiddlePage />
         </section>
-            <MiddlePage />
         <section id="contact">
           <ContactUs />
         </section>
