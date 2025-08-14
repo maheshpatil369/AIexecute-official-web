@@ -121,7 +121,6 @@ const Careers = () => {
           ))}
         </motion.div>
         
-        {/* --- New Apply Now Section --- */}
         <motion.div
             className="relative text-center mt-24 rounded-2xl p-10 overflow-hidden border border-white/10"
             initial={{ opacity: 0, y: 20 }}

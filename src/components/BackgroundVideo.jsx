@@ -14,7 +14,7 @@ export default function BackgroundVideo() {
 
   return (
     <>
-      {/* Intro video */}
+     
       {!introFinished && (
         <video
           ref={introRef}
@@ -27,7 +27,6 @@ export default function BackgroundVideo() {
         </video>
       )}
 
-      {/* Background looping video */}
       {introFinished && (
         <video
           autoPlay

@@ -1,12 +1,25 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import Navigation from "./components/Navigation";
 import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Board from "./pages/Board";
 import Careers from "./pages/Careers";
-import Services from "./components/Services"; // Import Services
-import Projects from "./components/Projects"; // Import Projects
+import Services from "./components/Services";
+import Projects from "./components/Projects";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // smooth scroll
+    });
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   const [lastScrollTop, setLastScrollTop] = useState(0);
@@ -15,7 +28,6 @@ function App() {
 
   const loaderVideoRef = useRef(null);
 
-  // Scroll hide/show header
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollTop = window.scrollY;
@@ -31,7 +43,6 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollTop]);
 
-  // Loader logic
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
@@ -41,29 +52,20 @@ function App() {
         document.body.style.overflow = "auto";
       };
     } else {
-        // Fallback for when video doesn't load
-        const timer = setTimeout(() => {
-            setIsLoaded(true);
-            document.body.style.overflow = "auto";
-        }, 2000); // Or some reasonable timeout
-        return () => clearTimeout(timer);
+      const timer = setTimeout(() => {
+        setIsLoaded(true);
+        document.body.style.overflow = "auto";
+      }, 2000);
+      return () => clearTimeout(timer);
     }
   }, []);
 
   return (
     <div className="main-container">
-      {/* 🔹 Permanent Background Video */}
-      <video
-        id="bg-video"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
+      <video id="bg-video" autoPlay loop muted playsInline>
         <source src="/Website BG Video Loop.mp4" type="video/mp4" />
       </video>
 
-      {/* 🔹 Loader Video */}
       {!isLoaded && (
         <div className="fixed inset-0 z-[9999] bg-black overflow-hidden">
           <video
@@ -78,13 +80,13 @@ function App() {
         </div>
       )}
 
-      {/* Main Website */}
       <div
         className={`transition-opacity duration-700 relative z-10 ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
         <Navigation isVisible={headerVisible} />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />

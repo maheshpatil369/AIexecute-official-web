@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Instagram } from 'lucide-react';
+import { Linkedin, Instagram, Mail } from 'lucide-react';
 
-// --- Import Board Member Images ---
 import sohamRautImg from "/src/assets/Board-persons/1-Soham-Raut.jpg";
 import dweepVartakImg from "/src/assets/Board-persons/2-Dweep-Vartak.jpg";
 import prasadDevkarImg from "/src/assets/Board-persons/3-Prasad-Devkar.jpg";
@@ -33,18 +32,17 @@ const itemVariants = {
 };
 
 const boardMembers = [
-    { name: "Soham Raut", title: "Founder & CEO, AIExecute", team: "Core", img: sohamRautImg },
-    { name: "Dweep Vartak", title: "Chief Technical Officer (BS)", team: "Tech", img: dweepVartakImg },
-    { name: "Prasad Devkar", title: "Chief Operating Officer (BS)", team: "Operations", img: prasadDevkarImg },
-    { name: "Abhiram Acharya", title: "Chief Innovation Officer (BS)", team: "Tech", img: abhiramAcharyaImg},
-    { name: "Urjita Roy", title: "Chief Marketing Officer (BS)", team: "Marketing", img: urjitaRoyImg },
-    { name: "Tanushree Hajare", title: "Chief Technical Officer (LS)", team: "Tech", img: tanushreeHajareImg },
-    { name: "Om Raut", title: "Chief Marketing Officer (LS)", team: "Marketing", img: omRautImg },
-    { name: "Daksh Tanna", title: "Chief Operating Officer (LS)", team: "Operations", img: dakshTannaImg },
-    { name: "Hardik Patel", title: "Chief Innovation Officer (LS)", team: "Tech", img: hardikPatelImg },
+    { name: "Soham Raut", title: "Founder & CEO, AIExecute", team: "Core", img: sohamRautImg, linkedin: "https://www.linkedin.com/in/soham-raut-?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/im_soham_raut_?igsh=aWdrZ21zOGwzbmNt", email: "soham.raut@aiexecute.in" },
+    { name: "Dweep Vartak", title: "Chief Technical Officer (BS)", team: "Tech", img: dweepVartakImg, linkedin: "https://www.linkedin.com/in/dweep-vartak?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/_dweep_vartak_?igsh=ajV0YWxzcHhsamgx", email: "2004dweep@gmail.com" },
+    { name: "Prasad Devkar", title: "Chief Operating Officer (BS)", team: "Operations", img: prasadDevkarImg, linkedin: "https://www.linkedin.com/in/devkarprasad?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "#", email: "devkarprasad00@gmail.com" },
+    { name: "Abhiram Acharya", title: "Chief Innovation Officer (BS)", team: "Tech", img: abhiramAcharyaImg, linkedin: "https://www.linkedin.com/in/abhiram-acharya-7839aa245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/itz.abhiram?igsh=MmhzeGFwN29kY3k3", email: "acharyaabhiram7@gmail.com" },
+    { name: "Urjita Roy", title: "Chief Marketing Officer (BS)", team: "Marketing", img: urjitaRoyImg, linkedin: "https://www.linkedin.com/in/urjita-roy-43501027b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/_.urjita_.roy?igsh=MThtdng4NmNncDhhdQ==", email: "royurjita@gmail.com" },
+    { name: "Tanushree Hajare", title: "Chief Technical Officer (LS)", team: "Tech", img: tanushreeHajareImg, linkedin: "https://www.linkedin.com/in/tanushree-hajare-4a5182237?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/tanuwushree?igsh=cWw2cGh1NDVxd2pu", email: "tanushrihajare@gmail.com" },
+    { name: "Om Raut", title: "Chief Marketing Officer (LS)", team: "Marketing", img: omRautImg, linkedin: "https://www.linkedin.com/in/om-raut-a33690337?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "#", email: "omrautkeephopes@gmail.com" },
+    { name: "Daksh Tanna", title: "Chief Operating Officer (LS)", team: "Operations", img: dakshTannaImg, linkedin: "https://www.linkedin.com/in/daksh-t-271588201?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/daksh_tanna?igsh=MTI3cXI2ZTh5Y3Q3cw==", email: "tannadaksh10@gmail.com" },
+    { name: "Hardik Patel", title: "Chief Innovation Officer (LS)", team: "Tech", img: hardikPatelImg, linkedin: "https://www.linkedin.com/in/hardik-patel-5a1543261?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/hardikthewavv?igsh=MXUxNnRsbWM4aWh6bg==", email: "hardikpatelmr@gmail.com" },
 ];
 
-// It now accepts a 'colorClasses' prop to dynamically set the gradient
 const MemberCard = ({ member, colorClasses }) => (
   <motion.div
     className="relative group text-center"
@@ -57,8 +55,15 @@ const MemberCard = ({ member, colorClasses }) => (
       <h3 className="text-base sm:text-lg font-bold text-white">{member.name}</h3>
       <p className="text-purple-300 text-xs sm:text-sm">{member.title}</p>
       <div className="flex gap-3 mt-3">
-        <a href="#" className="text-gray-400 hover:text-white transition-colors"><Linkedin size={16} /></a>
-        <a href="#" className="text-gray-400 hover:text-white transition-colors"><Instagram size={16} /></a>
+        {member.linkedin && (
+          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Linkedin size={16} /></a>
+        )}
+        {member.instagram && (
+          <a href={member.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Instagram size={16} /></a>
+        )}
+        {member.email && (
+          <a href={`mailto:${member.email}`} className="text-gray-400 hover:text-white transition-colors"><Mail size={16} /></a>
+        )}
       </div>
     </div>
   </motion.div>
@@ -88,10 +93,8 @@ const Board = () => {
           </p>
         </motion.div>
 
-        {/* Board Members Layout */}
         <div className="flex flex-col items-center gap-y-8">
         
-          {/* Founder */}
           <motion.div 
             className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
             initial="hidden"
@@ -106,7 +109,7 @@ const Board = () => {
 
           {/* Second Row (4 members) */}
           <motion.div
-            className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 w-full"
+            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 w-full"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
@@ -119,7 +122,7 @@ const Board = () => {
 
           {/* Third Row (4 members) */}
           <motion.div
-            className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 w-full"
+            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 w-full"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}

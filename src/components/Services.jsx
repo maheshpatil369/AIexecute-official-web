@@ -71,7 +71,6 @@ const Services = () => {
     <div className="w-full text-white px-4 md:px-8 lg:px-16 pb-16 pt-24">
       <div className="max-w-7xl mx-auto">
         
-        {/* Title Section */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,14 +85,12 @@ const Services = () => {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Now mapping over all services */}
           {allServices.map((service, index) => (
             <motion.div
               key={index}

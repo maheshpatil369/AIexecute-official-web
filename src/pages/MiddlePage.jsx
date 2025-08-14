@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import AILogo from '../assets/bg-aiexecute.png';
 
-// Import local images for the cards
 import AiexecuteImg from '../assets/Homepage logo/1.png';
 import servicesImg from '../assets/Homepage logo/2.png';
 import projectsImg from '../assets/Homepage logo/3.png';
@@ -13,7 +12,6 @@ import boardImg from '../assets/Homepage logo/5.png';
 import internshipsImg from '../assets/Homepage logo/6.png';
 
 
-// Data for the six cards with correct links and images
 const middlePageData = [
   {
     title: "What is AIExecute?",
@@ -53,16 +51,13 @@ const middlePageData = [
   },
 ];
 
-// Reusable card component with a working onClick handler
 const InfoCard = ({ item, index }) => {
   const navigate = useNavigate();
 
-  // This function handles the navigation when a card is clicked
   const handleClick = () => {
     navigate(item.link);
   };
 
-  // --- Define color palettes ---
   const fromColors = ['from-purple-600', 'from-cyan-500', 'from-green-400'];
   const toColors = ['to-pink-600', 'to-blue-500', 'to-teal-500'];
   const hoverFromColors = ['group-hover:from-teal-400', 'group-hover:from-yellow-400', 'group-hover:from-red-500'];
@@ -80,7 +75,6 @@ const InfoCard = ({ item, index }) => {
       whileHover={{ y: -8, scale: 1.03 }}
       transition={{ type: 'spring', stiffness: 300 }}
     >
-      {/* Dynamically apply colors based on index */}
       <div
         className={`absolute -inset-1.5 bg-gradient-to-r ${fromColors[colorIndex]} ${toColors[colorIndex]} rounded-2xl blur opacity-25 group-hover:opacity-75 ${hoverFromColors[colorIndex]} ${hoverToColors[colorIndex]} transition-all duration-500`}
       ></div>
@@ -117,7 +111,7 @@ const MiddlePage = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase rainbow-text mb-6 tracking-[0.35em]">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold uppercase rainbow-text mb-6 tracking-tight sm:tracking-[0.35em] whitespace-nowrap">
             Discover AIExecute
           </h1>
           <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto">

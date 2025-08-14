@@ -3,11 +3,9 @@ import { motion } from 'framer-motion';
 import { MoveUpRight, Youtube, Instagram, Linkedin, Mail } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import AILogo from '../assets/bg-aiexecute.png';
-// CORRECTED FILE PATHS
 // import Alex from '../assets/Alex Transparent.png'; 
 // import Alexi from '../assets/Alexi Transparent.png';
 
-// Data for the contact cards, matching the design
 const contactLinks = [
   {
     name: "Our Brochure",
@@ -83,7 +81,7 @@ const ContactUs = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-[0.35em] rainbow-text">
+          <h1 className="text-3xl md:text-5xl font-extrabold uppercase tracking-widest md:tracking-[0.35em] rainbow-text whitespace-nowrap">
             GET IN TOUCH
           </h1>
         </motion.div>

@@ -1,10 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ContactUs from "../components/ContactUs";
-import MiddlePage from "./MiddlePage"; // Import the new MiddlePage
+import MiddlePage from "./MiddlePage"; 
 import AILogo from "../assets/bg-aiexecute.png";
 
-// Animation variants
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
@@ -14,7 +13,6 @@ const HeroSection = () => {
   return (
     <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4 sm:px-6">
       
-      {/* Logo */}
       <motion.img
         src={AILogo}
         alt="AIExecute Logo"
@@ -24,7 +22,6 @@ const HeroSection = () => {
         animate="visible"
       />
 
-      {/* Tagline */}
       <motion.p
         className="text-white text-sm sm:text-base md:text-lg max-w-3xl tracking-widest font-light uppercase mb-10"
         variants={itemVariants}
@@ -35,13 +32,12 @@ const HeroSection = () => {
         DRIVE INNOVATION AND LEARN TECH SHAPING THE FUTURE.
       </motion.p>
 
-      {/* Bottom Gradient Bar with Rainbow Hover Effect */}
      <motion.div
         variants={itemVariants}
         initial="hidden"
         animate="visible"
       >
-        <p className="rainbow-text font-semibold tracking-[0.35em] text-lg md:text-xl uppercase">
+        <p className="rainbow-text font-semibold tracking-[0.2em] sm:tracking-[0.35em] text-base sm:text-lg md:text-xl uppercase whitespace-nowrap">
           Learn • Build • Grow • Execute
         </p>
       </motion.div>
@@ -54,10 +50,8 @@ const HeroSection = () => {
 const HomePage = () => {
   return (
     <div className="home-background relative overflow-hidden bg-transparent">
-      {/* Hero Section */}
       <HeroSection />
 
-      {/* Sections */}
       <div className="bg-inherit relative z-10">
         <section id="middle">
         </section>

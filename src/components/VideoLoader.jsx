@@ -23,7 +23,6 @@ export default function VideoLoader({ onEnd }) {
         <source src="/AIExecute Opening Video.mp4" type="video/mp4" />
       </video>
 
-      {/* Overlay to hide video feel */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/40"></div>
     </div>
   );
