@@ -2,6 +2,18 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Instagram } from 'lucide-react';
 
+// --- Import Board Member Images ---
+import sohamRautImg from "/src/assets/Board-persons/1-Soham-Raut.jpg";
+import dweepVartakImg from "/src/assets/Board-persons/2-Dweep-Vartak.jpg";
+import prasadDevkarImg from "/src/assets/Board-persons/3-Prasad-Devkar.jpg";
+import abhiramAcharyaImg from "/src/assets/Board-persons/4-Abhiram-Acharya.jpg";
+import urjitaRoyImg from "/src/assets/Board-persons/5-Urjita-Roy.jpg";
+import tanushreeHajareImg from "/src/assets/Board-persons/6-Tanushree-Hajare.jpg";
+import omRautImg from "/src/assets/Board-persons/7-Om-Raut.jpg";
+import dakshTannaImg from "/src/assets/Board-persons/8-Daksh-Tanna.jpg";
+import hardikPatelImg from "/src/assets/Board-persons/9-Hardik-Patel.jpg";
+
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -21,18 +33,17 @@ const itemVariants = {
 };
 
 const boardMembers = [
-    { name: "Soham Raut", title: "Founder & CEO, AIExecute", team: "Core", img: "/src/assets/Board-persons/1-Soham-Raut.jpg" },
-    { name: "Dweep Vartak", title: "Chief Technical Officer (BS)", team: "Tech", img: "/src/assets/Board-persons/2-Dweep-Vartak.jpg" },
-    { name: "Prasad Devkar", title: "Chief Operating Officer (BS)", team: "Operations", img: "/src/assets/Board-persons/3-Prasad-Devkar.jpg" },
-    { name: "Abhiram Acharya", title: "Chief Innovation Officer (BS)", team: "Tech", img: "/src/assets/Board-persons/4-Abhiram-Acharya.jpg"},
-    { name: "Urjita Roy", title: "Chief Marketing Officer (BS)", team: "Marketing", img: "/src/assets/Board-persons/5-Urjita-Roy.jpg" },
-    { name: "Tanushree Hajare", title: "Chief Technical Officer (LS)", team: "Tech", img: "/src/assets/Board-persons/6-Tanushree-Hajare.jpg" },
-    { name: "Om Raut", title: "Chief Marketing Officer (LS)", team: "Marketing", img: "/src/assets/Board-persons/7-Om-Raut.jpg" },
-    { name: "Daksh Tanna", title: "Chief Operating Officer (LS)", team: "Operations", img: "/src/assets/Board-persons/8-Daksh-Tanna.jpg" },
-    { name: "Hardik Patel", title: "Chief Innovation Officer (LS)", team: "Tech", img: "/src/assets/Board-persons/9-Hardik-Patel.jpg" },
+    { name: "Soham Raut", title: "Founder & CEO, AIExecute", team: "Core", img: sohamRautImg },
+    { name: "Dweep Vartak", title: "Chief Technical Officer (BS)", team: "Tech", img: dweepVartakImg },
+    { name: "Prasad Devkar", title: "Chief Operating Officer (BS)", team: "Operations", img: prasadDevkarImg },
+    { name: "Abhiram Acharya", title: "Chief Innovation Officer (BS)", team: "Tech", img: abhiramAcharyaImg},
+    { name: "Urjita Roy", title: "Chief Marketing Officer (BS)", team: "Marketing", img: urjitaRoyImg },
+    { name: "Tanushree Hajare", title: "Chief Technical Officer (LS)", team: "Tech", img: tanushreeHajareImg },
+    { name: "Om Raut", title: "Chief Marketing Officer (LS)", team: "Marketing", img: omRautImg },
+    { name: "Daksh Tanna", title: "Chief Operating Officer (LS)", team: "Operations", img: dakshTannaImg },
+    { name: "Hardik Patel", title: "Chief Innovation Officer (LS)", team: "Tech", img: hardikPatelImg },
 ];
 
-// --- UPDATED MemberCard Component ---
 // It now accepts a 'colorClasses' prop to dynamically set the gradient
 const MemberCard = ({ member, colorClasses }) => (
   <motion.div
