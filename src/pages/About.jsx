@@ -66,9 +66,11 @@ const About = () => {
               <p className="text-gray-400 text-lg md:text-xl leading-relaxed text-center">
                 Building a future-ready generation by delivering transformative learning experiences in artificial intelligence, technology, innovation and business strategy.
               </p>
-              <p className="text-purple-400 font-semibold mt-4 text-center text-lg md:text-xl italic">
-                Adapt - Implement - Evolve
-              </p>
+          <p className="font-semibold mt-4 text-center text-lg md:text-xl italic rainbow-text">
+            Adapt - Implement - Evolve
+           </p>
+
+
             </div>
           </motion.div>
           {/* Business Solutions Section */}
@@ -81,9 +83,9 @@ const About = () => {
               <p className="text-gray-400 text-lg md:text-xl leading-relaxed text-center">
                 Helping businesses unlock growth through tailored AI solutions, strategic consulting, innovation services and digital transformation.
               </p>
-              <p className="text-purple-400 font-semibold mt-4 text-center text-lg md:text-xl italic">
-                Assess - Innovate - Empower
-              </p>
+             <p className="font-semibold mt-4 text-center text-lg md:text-xl italic rainbow-text">
+                 Assess - Innovate - Empower
+             </p>
             </div>
           </motion.div>
         </motion.div>

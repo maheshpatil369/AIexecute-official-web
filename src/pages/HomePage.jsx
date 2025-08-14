@@ -15,26 +15,27 @@ const HeroSection = () => {
       <motion.img
         src={AILogo}
         alt="AIExecute Logo"
-        className="w-72 sm:w-80 md:w-96 lg:w-[28rem] h-auto mb-6 mt-20 md:mt-16"
+        className="w-72 sm:w-80 md:w-[26rem] lg:w-[32rem] xl:w-[36rem] h-auto mb-8"
         variants={itemVariants}
         initial="hidden"
         animate="visible"
       />
       <motion.p
-        className="text-white text-base sm:text-lg md:text-lg max-w-xs sm:max-w-md md:max-w-3xl tracking-widest font-light uppercase mb-10"
+        className="text-white text-sm sm:text-base md:text-lg sm:max-w-md md:max-w-3xl tracking-widest font-light uppercase mb-10"
         variants={itemVariants}
         initial="hidden"
         animate="visible"
       >
-        YOUR ONE-STOP PLATFORM TO BUILD AI, <br />
-        DRIVE INNOVATION AND LEARN TECH SHAPING THE FUTURE.
+        YOUR ONE-STOP PLATFORM TO BUILD AI,
+        <br className="sm:hidden" /> DRIVE INNOVATION AND LEARN TECH
+        <br className="sm:hidden" /> SHAPING THE FUTURE.
       </motion.p>
       <motion.div
         variants={itemVariants}
         initial="hidden"
         animate="visible"
       >
-        <p className="rainbow-text font-semibold tracking-[0.2em] sm:tracking-[0.35em] text-base sm:text-lg md:text-xl uppercase whitespace-nowrap">
+        <p className="rainbow-text font-semibold tracking-[0.2em] sm:tracking-[0.35em] text-sm sm:text-base md:text-xl uppercase whitespace-nowrap">
           Learn • Build • Grow • Execute
         </p>
       </motion.div>
