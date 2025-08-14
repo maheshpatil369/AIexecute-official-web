@@ -35,18 +35,19 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-          <h1 className="text-[2.2rem] md:text-[3rem] font-extrabold uppercase tracking-[0.25em] leading-tight">
-            <span
-              className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent
-                       hover:bg-gradient-to-r hover:from-pink-500 hover:via-red-500 hover:to-yellow-500
-                       transition-all duration-500"
-            >
-              What is AIExecute?
-            </span>
-          </h1> 
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
-            AIExecute is an innovation-driven company offering a one-stop solution for individuals, professionals and businesses seeking to thrive in today’s fast-evolving technological world.
-          </p>
+         <h1 className="text-[2.2rem] md:text-[3rem] font-extrabold uppercase tracking-[0.25em] leading-tight mb-4">
+  <span
+    className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent
+               hover:bg-gradient-to-r hover:from-pink-500 hover:via-red-500 hover:to-yellow-500
+               transition-all duration-500"
+  >
+    What is AIExecute?
+  </span>
+</h1>
+<p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+  AIExecute is an innovation-driven company offering a one-stop solution for individuals, professionals and businesses seeking to thrive in today’s fast-evolving technological world.
+</p>
+
         </motion.div>
 
         {/* --- Replaced Description Section with new content --- */}
@@ -59,29 +60,35 @@ const About = () => {
         >
           {/* Learning Solutions Section */}
           <motion.div className="relative group" variants={itemVariants}>
-            <div className="absolute -inset-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-300"></div>
-            <div className="relative p-8 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 h-full">
-              <h3 className="text-2xl font-bold mb-4 text-white">LEARNING SOLUTIONS</h3>
-              <p className="text-gray-400 text-xl leading-relaxed text-center">
-                Building a future-ready generation by delivering transformative learning experiences in artificial intelligence, technology, innovation and business strategy.
-              </p>
-              <p className="text-purple-400 font-semibold mt-4 text-center text-xl italic">
-                Adapt - Implement - Evolve
-              </p>
-            </div>
+           <div className="absolute -inset-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-300"></div>
+<div className="relative p-8 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 h-full">
+  <h3 className="text-2xl font-bold mb-4 text-white text-center">
+    LEARNING SOLUTIONS
+  </h3>
+  <p className="text-gray-400 text-xl leading-relaxed text-center">
+    Building a future-ready generation by delivering transformative learning experiences in artificial intelligence, technology, innovation and business strategy.
+  </p>
+  <p className="text-purple-400 font-semibold mt-4 text-center text-xl italic">
+    Adapt - Implement - Evolve
+  </p>
+</div>
+
           </motion.div>
           {/* Business Solutions Section */}
           <motion.div className="relative group" variants={itemVariants}>
-            <div className="absolute -inset-1.5 bg-gradient-to-r from-cyan-600 to-teal-600 rounded-2xl blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-300"></div>
-            <div className="relative p-8 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 h-full">
-              <h3 className="text-2xl font-bold mb-4 text-white">BUSINESS SOLUTIONS</h3>
-              <p className="text-gray-400 text-xl leading-relaxed text-center">
-                Helping businesses unlock growth through tailored AI solutions, strategic consulting, innovation services and digital transformation.
-              </p>
-              <p className="text-purple-400 font-semibold mt-4 text-center text-xl italic">
-                Assess - Innovate - Empower
-              </p>
-            </div>
+       <div className="absolute -inset-1.5 bg-gradient-to-r from-cyan-600 to-teal-600 rounded-2xl blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-300"></div>
+<div className="relative p-8 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 h-full">
+  <h3 className="text-2xl font-bold mb-4 text-white text-center">
+    BUSINESS SOLUTIONS
+  </h3>
+  <p className="text-gray-400 text-xl leading-relaxed text-center">
+    Helping businesses unlock growth through tailored AI solutions, strategic consulting, innovation services and digital transformation.
+  </p>
+  <p className="text-purple-400 font-semibold mt-4 text-center text-xl italic">
+    Assess - Innovate - Empower
+  </p>
+</div>
+
           </motion.div>
         </motion.div>
 

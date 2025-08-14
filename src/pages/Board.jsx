@@ -32,13 +32,15 @@ const boardMembers = [
     { name: "Hardik Patel", title: "Chief Innovation Officer (LS)", team: "Tech", img: "/src/assets/Board-persons/9-Hardik-Patel.jpg" },
 ];
 
-const MemberCard = ({ member }) => (
+// --- UPDATED MemberCard Component ---
+// It now accepts a 'colorClasses' prop to dynamically set the gradient
+const MemberCard = ({ member, colorClasses }) => (
   <motion.div
     className="relative group text-center"
     variants={itemVariants}
     whileHover={{ y: -6 }}
   >
-    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-300 animate-tilt"></div>
+    <div className={`absolute -inset-1 bg-gradient-to-r ${colorClasses} rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-300 animate-tilt`}></div>
     <div className="relative p-4 sm:p-6 rounded-lg bg-black/70 backdrop-blur-sm border border-white/10 h-full flex flex-col items-center justify-center">
       <img src={member.img} alt={member.name} className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mb-3 border-2 border-white/20 object-cover" />
       <h3 className="text-base sm:text-lg font-bold text-white">{member.name}</h3>
@@ -87,7 +89,7 @@ const Board = () => {
             variants={containerVariants}
           >
             {boardMembers.slice(0, 1).map((member) => (
-              <MemberCard key={member.name} member={member} />
+              <MemberCard key={member.name} member={member} colorClasses="from-yellow-400 to-orange-500" />
             ))}
           </motion.div>
 
@@ -100,7 +102,7 @@ const Board = () => {
             variants={containerVariants}
           >
             {boardMembers.slice(1, 5).map((member) => (
-              <MemberCard key={member.name} member={member} />
+              <MemberCard key={member.name} member={member} colorClasses="from-blue-500 to-teal-400" />
             ))}
           </motion.div>
 
@@ -113,7 +115,7 @@ const Board = () => {
             variants={containerVariants}
           >
             {boardMembers.slice(5, 9).map((member) => (
-              <MemberCard key={member.name} member={member} />
+              <MemberCard key={member.name} member={member} colorClasses="from-purple-600 to-pink-600" />
             ))}
           </motion.div>
         </div>

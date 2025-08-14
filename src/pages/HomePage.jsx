@@ -35,13 +35,13 @@ const HeroSection = () => {
         DRIVE INNOVATION AND LEARN TECH SHAPING THE FUTURE.
       </motion.p>
 
-      {/* Bottom Gradient Bar */}
+      {/* Bottom Gradient Bar with Rainbow Hover Effect */}
      <motion.div
         variants={itemVariants}
         initial="hidden"
         animate="visible"
       >
-        <p className="bg-gradient-to-r from-green-300 via-blue-400 to-purple-500 bg-clip-text text-transparent font-semibold tracking-[0.35em] text-lg md:text-xl uppercase">
+        <p className="rainbow-text font-semibold tracking-[0.35em] text-lg md:text-xl uppercase">
           Learn • Build • Grow • Execute
         </p>
       </motion.div>

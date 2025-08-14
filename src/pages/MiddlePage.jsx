@@ -54,13 +54,21 @@ const middlePageData = [
 ];
 
 // Reusable card component with a working onClick handler
-const InfoCard = ({ item }) => {
+const InfoCard = ({ item, index }) => {
   const navigate = useNavigate();
 
   // This function handles the navigation when a card is clicked
   const handleClick = () => {
     navigate(item.link);
   };
+
+  // --- Define color palettes ---
+  const fromColors = ['from-purple-600', 'from-cyan-500', 'from-green-400'];
+  const toColors = ['to-pink-600', 'to-blue-500', 'to-teal-500'];
+  const hoverFromColors = ['group-hover:from-teal-400', 'group-hover:from-yellow-400', 'group-hover:from-red-500'];
+  const hoverToColors = ['group-hover:to-blue-500', 'group-hover:to-orange-500', 'group-hover:to-rose-500'];
+
+  const colorIndex = index % 3;
 
   return (
     <motion.div
@@ -72,7 +80,10 @@ const InfoCard = ({ item }) => {
       whileHover={{ y: -8, scale: 1.03 }}
       transition={{ type: 'spring', stiffness: 300 }}
     >
-      <div className="absolute -inset-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-25 group-hover:opacity-60 transition-all duration-500"></div>
+      {/* Dynamically apply colors based on index */}
+      <div
+        className={`absolute -inset-1.5 bg-gradient-to-r ${fromColors[colorIndex]} ${toColors[colorIndex]} rounded-2xl blur opacity-25 group-hover:opacity-75 ${hoverFromColors[colorIndex]} ${hoverToColors[colorIndex]} transition-all duration-500`}
+      ></div>
       
       <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/60 backdrop-blur-sm h-full flex flex-col">
         <img src={item.image} alt={item.title} className="w-full h-40 sm:h-48 object-cover" />
@@ -106,7 +117,7 @@ const MiddlePage = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-[0.2em] sm:tracking-[0.35em] rainbow-text mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase rainbow-text mb-6 tracking-[0.35em]">
             Discover AIExecute
           </h1>
           <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto">
@@ -115,8 +126,8 @@ const MiddlePage = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
-          {middlePageData.map((item) => (
-            <InfoCard key={item.title} item={item} />
+          {middlePageData.map((item, index) => (
+            <InfoCard key={item.title} item={item} index={index} />
           ))}
         </div>
       </div>
