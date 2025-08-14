@@ -110,7 +110,7 @@ const MiddlePage = () => {
             Discover AIExecute
           </h1>
           <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto">
-            Discover AIExecute: Enter the execution grid where every section is a new data point in our living network.
+            Enter the execution grid where every section is a new data point in our living network.
           </p>
         </motion.div>
 

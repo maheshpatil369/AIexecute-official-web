@@ -39,7 +39,7 @@ const allProjects = [
   {
     title: "Virtual Real Estate Experience",
     description: "A web platform that lets clients explore properties in first-person, measure spaces in real time, view layouts and models, all without apps or headsets.",
-    image: "https://placehold.co/600x400/020018/a78bfa?text=Virtual+Real+Estate",
+    image: "https://i.postimg.cc/zXj9ZDzm/projectimg.png",
     tech: ["React", "Go"],
     liveUrl: "#",
     isClient: false,
@@ -47,7 +47,7 @@ const allProjects = [
   {
     title: "Green Watt: Household Energy Consumption Tracker",
     description: "A web dashboard that tracks household electricity usage, identifies inefficiencies and suggests cost-saving measures.",
-    image: "https://placehold.co/600x400/020018/94a3b8?text=Green+Watt",
+    image: "https://i.postimg.cc/mkMBNvCL/projectimg.png",
     tech: ["Next.js", "PostgreSQL"],
     liveUrl: "#",
     isClient: false,
@@ -55,7 +55,7 @@ const allProjects = [
   {
     title: "MeddiSynx: Scalable Synthetic Data Generation",
     description: "An AI platform that generates HIPAA/GDPR-compliant synthetic patient datasets, accelerating healthcare R&D while eliminating privacy and compliance risks.",
-    image: "https://placehold.co/600x400/020018/a78bfa?text=MeddiSynx",
+    image: "https://i.postimg.cc/mkMBNvCL/projectimg.png",
     tech: ["Python", "TensorFlow"],
     liveUrl: "#",
     // isClient: true,

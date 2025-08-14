@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Eye, Users, Library } from 'lucide-react';
-import Alex from '../assets/Alex Transparent.png'; 
-import Alexi from '../assets/Alexi Transparent.png';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -37,18 +35,17 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-    <h1 className="text-[2.2rem] md:text-[3rem] font-extrabold uppercase tracking-[0.25em] leading-tight">
-  <span
-    className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent
-               hover:bg-gradient-to-r hover:from-pink-500 hover:via-red-500 hover:to-yellow-500
-               transition-all duration-500"
-  >
-   What is AIExecute?
-
-  </span>
-</h1> 
+          <h1 className="text-[2.2rem] md:text-[3rem] font-extrabold uppercase tracking-[0.25em] leading-tight">
+            <span
+              className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent
+                       hover:bg-gradient-to-r hover:from-pink-500 hover:via-red-500 hover:to-yellow-500
+                       transition-all duration-500"
+            >
+              What is AIExecute?
+            </span>
+          </h1> 
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
-           AIExecute is an innovation-driven company offering a one-stop solution for individuals, professionals and businesses seeking to thrive in today’s fast-evolving technological world.
+            AIExecute is an innovation-driven company offering a one-stop solution for individuals, professionals and businesses seeking to thrive in today’s fast-evolving technological world.
           </p>
         </motion.div>
 
@@ -102,7 +99,7 @@ const About = () => {
             <div className="relative text-center p-8 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 h-full">
               <Target className="mx-auto mb-4 text-purple-400" size={40} />
               <h4 className="text-xl font-bold mb-2">Our Mission</h4>
-              <p className="text-gray-400 text-sm">To make learning and innovation accessible, practical and empowering for every individual and organization.</p>
+              <p className="text-gray-400 text-sm">To make learning and innovation accessible, practical and empowering for every individual and organization.</p>
             </div>
           </motion.div>
 
@@ -112,7 +109,7 @@ const About = () => {
             <div className="relative text-center p-8 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 h-full">
               <Eye className="mx-auto mb-4 text-pink-400" size={40} />
               <h4 className="text-xl font-bold mb-2">Our Vision</h4>
-              <p className="text-gray-400 text-sm">To bridge the gap between ambition and achievement by making AI, Innovation and Execution accessible, practical and impactful for everyone.</p>
+              <p className="text-gray-400 text-sm">To bridge the gap between ambition and achievement by making AI, Innovation and Execution accessible, practical and impactful for everyone.</p>
             </div>
           </motion.div>
 
@@ -122,7 +119,7 @@ const About = () => {
             <div className="relative text-center p-8 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 h-full">
               <Users className="mx-auto mb-4 text-teal-400" size={40} />
               <h4 className="text-xl font-bold mb-2">The Creator Client Club</h4>
-              <p className="text-gray-400 text-sm">Building a space where creators don't just promote, but build, blending influence with innovation.</p>
+              <p className="text-gray-400 text-sm">Building a space where creators don't just promote, but build, blending influence with innovation.</p>
             </div>
           </motion.div>
 
@@ -132,29 +129,11 @@ const About = () => {
             <div className="relative text-center p-8 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 h-full">
               <Library className="mx-auto mb-4 text-indigo-400" size={40} />
               <h4 className="text-xl font-bold mb-2">AIExecute Library</h4>
-              <p className="text-gray-400 text-sm">Building a space to grow intellectually, emotionally and practically through the power of literature.</p>
+              <p className="text-gray-400 text-sm">Building a space to grow intellectually, emotionally and practically through the power of literature.</p>
             </div>
           </motion.div>
         </motion.div>
       </div>
-      {/* Alexi Image (Fixed Bottom Left) */}
-      <motion.img
-        src={Alexi}
-        alt="Alexi Character"
-        className="hidden lg:block fixed bottom-0 left-0 h-1/3 object-contain z-0"
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 1 }}
-      />
-      {/* Alex Image (Fixed Bottom Right) */}
-      <motion.img
-        src={Alex}
-        alt="Alex Character"
-        className="hidden lg:block fixed bottom-0 right-0 h-1/3 object-contain z-0"
-        initial={{ x: 100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 1 }}
-      />
     </div>
   );
 };

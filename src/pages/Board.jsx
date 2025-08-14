@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Instagram } from 'lucide-react';
-import Alex from '../assets/Alex Transparent.png'; 
-import Alexi from '../assets/Alexi Transparent.png';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -56,13 +54,12 @@ const MemberCard = ({ member }) => (
 const Board = () => {
   return (
    <div
-  className="relative w-full text-white px-4 py-16 sm:py-24 md:px-8 lg:px-16 min-h-screen"
-  style={{
-    background: 'radial-gradient(circle at 50% 50%, rgba(30, 0, 60, 0.5), transparent 70%)'
-  }}
->
-
-      <div className="max-w-7xl mx-auto relative z-10">
+      className="relative w-full text-white px-4 py-16 sm:py-24 md:px-8 lg:px-16 min-h-screen flex flex-col"
+      style={{
+        background: 'radial-gradient(circle at 50% 50%, rgba(30, 0, 60, 0.5), transparent 70%)'
+      }}
+    >
+      <div className="max-w-7xl mx-auto relative z-10 flex-grow w-full">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -74,7 +71,7 @@ const Board = () => {
             Meet The <span className="rainbow-text">AIExecute Board</span>
           </h1>
           <p className="text-sm sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-2">
-           The navigators steering AIExecute through every frontier of innovation.
+           The navigators steering AIExecute through every frontier of innovation.
           </p>
         </motion.div>
 
@@ -121,25 +118,6 @@ const Board = () => {
           </motion.div>
         </div>
       </div>
-      
-      {/* Alexi Image (Fixed Bottom Left) */}
-      <motion.img
-        src={Alexi}
-        alt="Alexi Character"
-        className="hidden lg:block fixed bottom-0 left-0 h-1/3 object-contain z-0"
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 1 }}
-      />
-      {/* Alex Image (Fixed Bottom Right) */}
-      <motion.img
-        src={Alex}
-        alt="Alex Character"
-        className="hidden lg:block fixed bottom-0 right-0 h-1/3 object-contain z-0"
-        initial={{ x: 100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 1 }}
-      />
     </div>
   );
 };
