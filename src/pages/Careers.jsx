@@ -81,19 +81,19 @@ const Careers = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-20"
+          className="text-center mb-16 sm:mb-20"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-[0.35em] rainbow-text mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-[0.2em] sm:tracking-[0.35em] rainbow-text mb-6">
        OUR <span className="rainbow-text">DEPARTMENTS</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
-           The specialized engines driving execution across every domain we touch.
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+           The specialized engines driving execution across every domain we touch.
           </p>
         </motion.div>
 
         {/* --- Departments Grid --- */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -107,13 +107,13 @@ const Careers = () => {
               whileHover={{ y: -8 }}
             >
               <div className="absolute -inset-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-300 animate-tilt"></div>
-              <div className="relative p-8 rounded-xl bg-black/70 backdrop-blur-sm border border-white/10 h-full flex flex-col">
+              <div className="relative p-6 sm:p-8 rounded-xl bg-black/70 backdrop-blur-sm border border-white/10 h-full flex flex-col">
                 <div className="flex items-center gap-4 mb-4">
                   {dept.icon}
-                  <h3 className="text-2xl font-bold text-white">{dept.name}</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">{dept.name}</h3>
                 </div>
-                <p className="text-gray-400 mb-4 flex-grow">{dept.description}</p>
-                <span className="text-purple-300 font-semibold bg-white/10 px-3 py-1 rounded-full self-start">
+                <p className="text-gray-400 mb-4 flex-grow text-sm sm:text-base">{dept.description}</p>
+                <span className="text-purple-300 font-semibold bg-white/10 px-3 py-1 rounded-full self-start text-xs sm:text-sm">
                   {dept.role}
                 </span>
               </div>
@@ -121,8 +121,9 @@ const Careers = () => {
           ))}
         </motion.div>
         
+        {/* --- New Apply Now Section --- */}
         <motion.div
-            className="relative text-center mt-24 rounded-2xl p-10 overflow-hidden border border-white/10"
+            className="relative text-center mt-20 sm:mt-24 rounded-2xl p-6 sm:p-10 overflow-hidden border border-white/10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -131,22 +132,22 @@ const Careers = () => {
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-10"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-900/30 to-pink-900/30 animate-gradient-x"></div>
             <div className="relative z-20">
-                <h2 className="text-3xl font-bold mb-2">Want to build real things & not just stack certificates on a resume?</h2>
-                <p className="text-2xl font-semibold rainbow-text mb-6">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-2">Want to build real things & not just stack certificates on a resume?</h2>
+                <p className="text-xl sm:text-2xl font-semibold rainbow-text mb-6">
                     JOIN US TO BUILD, GROW AND EXECUTE!
                 </p>
                 <a
                     href="http://linktr.ee/AIExecute" // Link to your application form
-                    className="relative inline-flex items-center gap-2 overflow-hidden text-white font-semibold py-3 px-12 rounded-lg border border-white/30 transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:border-white/60 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 transform hover:scale-105"
+                    className="relative inline-flex items-center gap-2 overflow-hidden text-white font-semibold py-3 px-8 sm:px-12 rounded-lg border border-white/30 transition-all duration-300 text-base sm:text-lg shadow-lg hover:shadow-xl hover:border-white/60 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 transform hover:scale-105"
                 >
                     Apply Now <ArrowRight size={18} />
                 </a>
                 
                 <div className="mt-12 text-left">
-                    <h4 className="font-semibold text-xl mb-4">We onboard for the following roles:</h4>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-3">
+                    <h4 className="font-semibold text-lg sm:text-xl mb-4">We onboard for the following roles:</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-3">
                         {roles.map(role => (
-                            <div key={role} className="flex items-center gap-2 text-gray-300">
+                            <div key={role} className="flex items-center gap-2 text-gray-300 text-sm sm:text-base">
                                 <CheckCircle size={16} className="text-green-400" />
                                 <span>{role}</span>
                             </div>
