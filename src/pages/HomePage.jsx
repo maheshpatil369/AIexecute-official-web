@@ -15,7 +15,7 @@ const HeroSection = () => {
       <motion.img
         src={AILogo}
         alt="AIExecute Logo"
-        className="w-72 sm:w-80 md:w-[26rem] lg:w-[32rem] xl:w-[36rem] h-auto mb-8"
+        className="w-72 sm:w-80 md:w-[28rem] lg:w-[28rem] xl:w-[30rem] h-auto mb-4 mt-6"
         variants={itemVariants}
         initial="hidden"
         animate="visible"
