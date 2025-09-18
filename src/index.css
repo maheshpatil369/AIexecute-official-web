@@ -30,44 +30,6 @@ body {
   background-color: black;
 }
 
-
-/* OLD UI BACKGROUND (commented) */
-/*
-.homepage-background {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-.homepage-background::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: rgba(0, 133, 255, 0.2);
-  clip-path: inset(0 50% 0 0);
-  filter: blur(60px);
-}
-
-.homepage-background::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(50%, -50%);
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: rgba(0, 133, 255, 0.2);
-  clip-path: inset(0 0 0 50%);
-  filter: blur(60px);
-}
-*/
-
 /* Rainbow Text Animation */
 .rainbow-text {
   background: linear-gradient(
@@ -87,3 +49,23 @@ body {
 .rainbow-text:hover {
   background-position: right center;
 }
+
+/* Custom Scrollbar for Horizontal Scrolling */
+.horizontal-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.horizontal-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.horizontal-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.6); /* A semi-transparent purple */
+  border-radius: 10px;
+}
+
+.horizontal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.8);
+}
+
